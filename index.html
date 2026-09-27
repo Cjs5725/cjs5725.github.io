@@ -199,6 +199,16 @@
   .tier li{display:flex;gap:10px;font-size:15px;color:var(--body)}
   .tier li svg{flex-shrink:0;margin-top:5px}
   .tier .btn{margin-top:20px;text-align:center}
+  .slots{display:flex;gap:6px;margin-top:16px}
+  .slots i{width:24px;height:8px;border-radius:4px;background:var(--cinnabar-soft);border:1px solid var(--cinnabar-light)}
+  .slots i.full{background:var(--cinnabar);border-color:var(--cinnabar)}
+  .slots-lb{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+  .custom-band{margin-top:28px;border:1px solid var(--line);border-radius:18px;padding:28px 30px;background:var(--card);display:grid;grid-template-columns:1.2fr 1fr;gap:32px}
+  @media(max-width:1100px){.custom-band{grid-template-columns:1fr}}
+  .custom-band h4{font-size:16px;margin-bottom:10px}
+  .custom-band .why{font-size:15px;color:var(--body)}
+  .custom-band .flow{font-family:var(--mono);font-size:13px;color:var(--ink);background:#fff;border:1px dashed var(--cinnabar-light);border-radius:12px;padding:12px 14px;margin-top:16px}
+  .custom-band ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--body)}
   .pay-note{display:flex;gap:24px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-top:28px;flex-wrap:wrap}
   .pay-note .ok{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--body)}
   .pay-note .ent{font-size:13px;font-weight:500;color:var(--cinnabar)}
@@ -538,14 +548,17 @@
       <a class="btn btn-primary" href="#install" data-page-node-id="fuRj33rrCRrGWY0IMPGpP8">发布后自装</a>
     </div>
     <div class="tier" data-page-node-id="JJ8gY4MzCkghDVFKpcXYwn">
-      <div class="nm" data-page-node-id="fh2FRCMhza0iwK3Ct9lniI"><b data-page-node-id="cm71f2aPxAVjyUnhDga1am">定制搬运</b><span class="rec" data-page-node-id="hZEGak6Fo79XudCQePfLDk">推荐</span></div>
-      <div class="price" data-page-node-id="qkTnYjwBJQ5KP3Kbyw65ox"><b data-page-node-id="Yibn5ULBuyOcnA6FIGr1zE">待定</b><span data-page-node-id="Cwrt9ZTAq28DM5CkEsXs38">首批预约中</span></div>
+      <div class="nm" data-page-node-id="fh2FRCMhza0iwK3Ct9lniI"><b data-page-node-id="cm71f2aPxAVjyUnhDga1am">单技能定制</b><span class="rec" data-page-node-id="hZEGak6Fo79XudCQePfLDk">档位 1 · 已定案</span></div>
+      <div class="price" data-page-node-id="qkTnYjwBJQ5KP3Kbyw65ox"><b data-page-node-id="Yibn5ULBuyOcnA6FIGr1zE">¥599</b><span data-page-node-id="Cwrt9ZTAq28DM5CkEsXs38">单技能 · 四件套随包</span></div>
+      <div class="slots" data-page-node-id="price599-slots" aria-label="首批限量 10 单，当前剩余 10 单"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="slots-lb" data-page-node-id="price599-slots-lb">首批限量 10 单 · 剩余 10（每交付 1 单更新）</div>
       <ul data-page-node-id="Ea6PZ7LogDnZSQxFH7FAxU">
-        <li data-page-node-id="LZVd9i3SHzjaLqtkmbyuXj"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="npanSIqxx9Pqspbq7WZ0D5"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="H9zMGM3hOL4VXJ4IrAX4Z9"/></svg>按你的源清单批量搬运，附 batch-report</li>
-        <li data-page-node-id="MYC607SCFHLwfVBjki8FTy"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="pALpFqrHlr5J5tZQxDH6pf"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="g0iEETBeTz4ksEu1IAiDGS"/></svg>中文化四道工序整包交付</li>
-        <li data-page-node-id="oop7s4FgOljVh3eLMIAATm"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="EYr5z0Zbuq1X9rEEpI19rR"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="XDK05CgAlafHDvuSXr11AT"/></svg>交付附双门禁与官方校验报告</li>
+        <li data-page-node-id="price599-d1"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>中文化技能包</b>（zip：SKILL.md 中文版＋安装说明＋归属声明）</li>
+        <li data-page-node-id="price599-d2"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>中英对照表</b>（术语逐条可查，同根词按动作/结果分译这类细节都在校）</li>
+        <li data-page-node-id="price599-d3"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>官方校验器 PASS 记录</b>（装得上、过得了平台校验——这不是承诺，是文件）</li>
+        <li data-page-node-id="price599-d4"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>改动清单</b>（改了什么、没改什么，逐条可回溯）</li>
       </ul>
-      <a class="btn btn-primary" href="#waitlist" data-page-node-id="TYJh16Inq2Mod7Er5WuFBm">预约首批名额</a>
+      <a class="btn btn-primary" href="https://ifdian.net/a/mojianggongfang" target="_blank" rel="noopener" data-page-node-id="price599-cta">到爱发电下单</a>
     </div>
     <div class="tier" data-page-node-id="DnZRDrLioOrQPFsCFCDG9E">
       <div class="nm" data-page-node-id="52osJq6DpgpfRnfox9UGwV"><b data-page-node-id="FgubMEaIBfmSxW8DIc4yLg">企业收录</b></div>
@@ -558,8 +571,23 @@
       <a class="btn btn-primary" href="#waitlist" data-page-node-id="LZ0s7RK9MAaubNSXnvb0Wz">预约首批名额</a>
     </div>
   </div>
+  <div class="custom-band" data-page-node-id="price599-band">
+    <div data-page-node-id="price599-why-col">
+      <h4 data-page-node-id="price599-why-h">为什么不是免费翻译</h4>
+      <p class="why" data-page-node-id="price599-why">大模型 30 秒就能给你翻一版，但翻完装不上、跑不通、过不了校验——我们卖的是「翻完能跑」这道工序，每一句背后都有一个文件。</p>
+      <div class="flow" data-page-node-id="price599-flow">下单流程：爱发电下单 → 私信发技能 GitHub 地址 → 可行性评估 → 评估通过进入加工 → 交付四件套＋验收单号</div>
+    </div>
+    <div data-page-node-id="price599-honest-col">
+      <h4 data-page-node-id="price599-honest-h">说明（如实报）</h4>
+      <ul data-page-node-id="price599-honest-list">
+        <li data-page-node-id="price599-h1">· 技能包本身基于开源代码（MIT/Apache 等），费用对应的是中文化加工与验收服务；</li>
+        <li data-page-node-id="price599-h2">· 复杂度超限（超长文档/多依赖/私有技能）会在接单前说明，不接的坦白说不接；</li>
+        <li data-page-node-id="price599-h3">· 首批限量 10 单：我们想把每一单做完再做下一单。</li>
+      </ul>
+    </div>
+  </div>
   <div class="pay-note" data-page-node-id="ShtqfQ4TeYsiRL2tTN4FOY">
-    <span class="ok" data-page-node-id="Y70jLiWxtR4CmK8JZ2vQ0P"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="gNOCZDHqjvUbanBuXQgpcx"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="KNagj2YHQE17d8uEQoryLr"/></svg>爱发电主页已开：<a href="https://ifdian.net/a/mojianggongfang" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">ifdian.net/a/mojianggongfang</a>（免费中文包整理中，上架后此处同步）· 付费档位 1（¥599 单技能定制）已定案，上架后此处同步 · 等待列表只登记需求，不收钱</span>
+    <span class="ok" data-page-node-id="Y70jLiWxtR4CmK8JZ2vQ0P"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="gNOCZDHqjvUbanBuXQgpcx"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="KNagj2YHQE17d8uEQoryLr"/></svg>爱发电主页已开：<a href="https://ifdian.net/a/mojianggongfang" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">ifdian.net/a/mojianggongfang</a>（免费中文包整理中，上架后此处同步）· 付费档位 1（¥599 单技能定制）已定案 · 下单入口见上方「单技能定制」卡 · 等待列表只登记需求，不收钱</span>
     <span class="ent" data-page-node-id="Gko8Rkb9zp9ujZXUWvVqcb">企业 / 批量收录：请通过下方「预约首批名额」表单登记，首批开放时统一联系</span>
   </div>
   <div class="waitlist" id="waitlist" data-page-node-id="RL5F0vMEV0IcMPxnolPKF3">
@@ -575,7 +603,7 @@
       <div class="submit-row" data-page-node-id="IhCTBGS9MzbDTuffHtYdjq">
         <button class="btn btn-primary" type="submit" data-page-node-id="qmc9VzKSFEfBOYc1cofJ98">提交预约</button>
         <button class="btn btn-dark" type="button" id="wf-copy" data-page-node-id="wf-copy-fallback">复制登记内容</button>
-        <span class="note" data-page-node-id="pOVAXdNPvaGwQwEjdXBEdA">等待列表只登记需求 · 不收钱 · 付费档位 1（¥599 单技能定制 · 首批限量 10 单）已定案，上架前不开放任何付费动作 · 2026-09-27</span>
+        <span class="note" data-page-node-id="pOVAXdNPvaGwQwEjdXBEdA">等待列表只登记需求 · 不收钱 · 付费档位 1（¥599）已定案，下单与收款走爱发电 · 2026-09-27</span>
       </div>
       <div id="form-msg" role="status" data-page-node-id="SD6um1lbY6HGOHz6ezPcHx"></div>
     </form>
@@ -625,7 +653,7 @@
     <div class="giant" data-page-node-id="MlYzdJZHFd28LRFLF6f7Es">SKILL PORTER</div>
     <div class="ft-bottom" data-page-node-id="AI8IeeQW5K8if6aMld1iAx">
       <span class="cp" data-page-node-id="Ag7dtG3mERf3OEGB5dCQAI">mojiang.ink · 2026 墨匠工坊 · github-skill-porter 以 Apache-2.0 开源</span>
-      <span class="st" data-page-node-id="pVXvgGWo3Q44THHJD5Cv8K">收录清单 37 行就绪 · 收录仓 skill-arsenal 已开源 · 爱发电主页已开 · 付费档位 1（¥599 单技能定制）已定案 · 上架中</span>
+      <span class="st" data-page-node-id="pVXvgGWo3Q44THHJD5Cv8K">收录清单 37 行就绪 · 收录仓 skill-arsenal 已开源 · 爱发电主页已开 · 付费档位 1（¥599 单技能定制）已定案 · 详情见上方定制区</span>
     </div>
   </div>
 </footer>
