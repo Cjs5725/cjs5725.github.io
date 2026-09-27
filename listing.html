@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="xY7XAe9xFxgGqx8f0TQrOC">
+<head data-page-node-id="xKW9LovHq22Scr2N2K8gQv">
+<meta charset="UTF-8" data-page-node-id="fFFb8yICh9nTjYB7TO79WO">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="9WDCXVrhCxJxGBsS3acgPi">
+<title>mojiang · 收录清单 · GitHub技能搬运工 — 逐条可回溯</title>
+<meta name="description" content="每个收录技能一行，四栏全部可核：来源仓库外链 / 许可（仓级＋文件级）/ 体检结论 / 中文化状态。" data-page-node-id="0VrZBVNa2cdoDDdQ3QnTLD">
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="nwuzD51t1VRNAfHondgUQJ">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="Ms3yHSaOgEn6XIIOqloAH5">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@900&family=Geist+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" data-page-node-id="FrdSifuoBp5ZUpkMZj19jQ">
+<style>
+  :root{
+    --ink:#0E1116; --body:#5B6472; --muted:#8A93A2; --line:#E8E8EB;
+    --cinnabar:#B24A32; --cinnabar-soft:#FBEDE9;
+    --card:#F7F8FB; --dark:#14181F;
+    --sans:"Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    --mono:"Geist Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+    --disp:"Geist","Geist Mono",var(--mono);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;font-size:16px;line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1440px;margin:0 auto}
+  .mono{font-family:var(--mono)}
+  .btn{display:inline-block;font-weight:600;font-size:15px;padding:13px 22px;border-radius:12px;border:1px solid transparent;cursor:pointer}
+  .btn-primary{background:var(--cinnabar);color:#fff}
+  .btn-primary:hover{background:#9c3f2a}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:#D6DBE3}
+  .btn-ghost:hover{border-color:var(--cinnabar);color:var(--cinnabar)}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:500;font-size:12px;color:var(--cinnabar);background:var(--cinnabar-soft);border-radius:999px;padding:6px 12px}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .hd{display:flex;align-items:center;gap:28px;padding:14px 120px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .logo{width:32px;height:32px;border-radius:9px;background:var(--cinnabar);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:13px}
+  .brand b{font-size:18px;font-weight:600;line-height:1.2}
+  .brand small{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
+  nav{display:flex;gap:28px;margin-left:24px}
+  nav a{font-size:15px;font-weight:500;color:var(--body)}
+  nav a:hover{color:var(--cinnabar)}
+  .hd-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  @media(max-width:1100px){nav{display:none}.hd{padding:14px 24px}}
+  .pagehead{padding:64px 120px 40px;border-bottom:1px solid var(--line)}
+  .pagehead h1{font-size:30px;font-weight:600;margin-top:12px}
+  .pagehead p{font-size:15px;line-height:26px;color:var(--body);margin-top:12px;max-width:1100px}
+  @media(max-width:900px){.pagehead{padding:40px 24px 32px}}
+  .tablewrap{padding:8px 120px}
+  @media(max-width:900px){.tablewrap{padding:8px 24px}}
+  .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+  .trow{display:flex;gap:16px;align-items:center;padding:16px 28px}
+  .trow.head{padding:18px 28px;font-family:var(--mono);font-weight:500;font-size:12px;color:var(--muted);align-items:baseline}
+  .trow.zebra{background:var(--card)}
+  .c-name{flex:1;font-family:var(--mono);font-weight:500;font-size:13px;min-width:0}
+  .c-src{width:400px;flex-shrink:0;font-family:var(--mono);font-size:12px;color:var(--body)}
+  .c-src a{border-bottom:1px solid #D8DCE2}
+  .c-src a:hover{color:var(--cinnabar);border-color:var(--cinnabar)}
+  .c-lic{width:270px;flex-shrink:0;font-size:12px;color:var(--body)}
+  .c-con{width:130px;flex-shrink:0;font-size:12px;font-weight:500}
+  .c-st{width:130px;flex-shrink:0;font-family:var(--mono);font-size:12px;text-align:right}
+  .c-st.r{color:var(--muted)}
+  @media(max-width:1100px){
+    .trow{flex-wrap:wrap;gap:8px}
+    .c-src,.c-lic,.c-con,.c-st{width:auto;flex:1 1 40%}
+    .trow.head{display:none}
+  }
+  .group{padding:20px 28px;display:flex;flex-direction:column;gap:10px}
+  .group .gh{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .group .gh b{font-family:var(--mono);font-weight:500;font-size:13px}
+  .group .gh span{font-size:12px;color:var(--body)}
+  .group .names{font-family:var(--mono);font-size:11px;line-height:18px;color:var(--muted);word-break:break-all}
+  .group .blocker{font-family:var(--mono);font-size:11px;color:var(--cinnabar)}
+  .con-warn{color:var(--cinnabar);font-weight:600}
+  .star{font-family:var(--mono);font-size:11px;color:var(--cinnabar);margin-top:8px}
+  .redline{padding:20px 28px 8px;display:flex;flex-direction:column;gap:10px}
+  .redline h3{font-family:var(--mono);font-weight:600;font-size:12px;color:var(--cinnabar)}
+  .redline p{font-size:13px;line-height:22px;color:var(--body)}
+  .redline .note{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .foot-note{padding:24px 120px 48px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  @media(max-width:900px){.foot-note{padding:24px 24px 48px}}
+  .backline{border-top:1px solid var(--line);padding:28px 120px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  @media(max-width:900px){.backline{padding:28px 24px}}
+  .backline p{font-size:15px;color:var(--body);flex:1;min-width:280px}
+</style>
+</head>
+<body data-page-node-id="Vh1XDPPTOJTDLuazXlfNDE">
+
+<header data-page-node-id="4qPkNWwavwscMDF0QQAbQR">
+  <div class="hd wrap" data-page-node-id="kcoqv1T2eDOJrzDLVeoyi0">
+    <a class="brand" href="index.html" data-page-node-id="K24TGDV7rWWCxma7Q5aSDP">
+      <span class="logo" data-page-node-id="hFrW42FH9lJWB05HC8KOIH">SP</span>
+      <span data-page-node-id="FkAsLe8RjAIdAO03v6vORW"><b data-page-node-id="TVkiy7UjJCUUISgN4uKC5K">GitHub技能搬运工</b><small data-page-node-id="2VVNFq9E4aQ5hIMRjNlV7t">mojiang.ink · github-skill-porter</small></span>
+    </a>
+    <nav data-page-node-id="C0vdDyQp5uw9HC6G9LW5bp">
+      <a href="index.html#capabilities" data-page-node-id="ebvE7wgVn6PdBN1wQZZUIW">能力</a>
+      <a href="index.html#usage" data-page-node-id="RmEN43DjraPxIUGf7aRcMw">用法</a>
+      <a href="index.html#versions" data-page-node-id="dBN6PTsOhurpuMGp5EZZ0P">版本</a>
+      <a href="index.html#scripts" data-page-node-id="BAXX1XWsSPAr9AsrBizLuM">脚本货架</a>
+    </nav>
+    <div class="hd-right" data-page-node-id="GhTIK0PQG9yl65mjrLJClS">
+      <span class="pill" data-page-node-id="z6VRlQgcrCRZBR175Yrh9Z">v2.4.0</span>
+      <a class="btn btn-ghost" href="index.html#install" data-page-node-id="KMUNeBdzPVU8HxJMkY21zS">读 SKILL.md</a>
+      <a class="btn btn-primary" href="index.html#waitlist" data-page-node-id="Wtm0RjeGMliVwjV2jwPEtb">预约首批名额</a>
+    </div>
+  </div>
+</header>
+
+<div class="pagehead wrap" data-page-node-id="RlfgtBvtCFaQmjzGHJs04a">
+  <span class="pill" data-page-node-id="hNW2CGDTRrHGCeYsGKgkLF">SKILL PORTER · 收录清单</span>
+  <h1 data-page-node-id="6DVK9OT34i0catxasNjCrv">收录清单</h1>
+  <p data-page-node-id="gmk0tBfVQFOASZYoRf3j5s">本页是「逐条可回溯」承诺的兑现处：每个收录技能一行（37 行），四栏全部可核。数据源：生产端 skill-registry.md（gen_registry.py 生成）＋ 2026-09-26 示范案例 video-transcribe ＋ 掘金《外链回填-20260926》（第 1–5 批 22 技能，URL 出自三份雷达档案并经 GitHub API 独立验证 200，SPDX 全量核包内 LICENSE 原文：20 Apache-2.0 ＋ 2 MIT）＋ 第 7 批 N9 八技能（军团《验收单-第7批》PASS 后放行加行，数据用搬运枪《修复留痕》§四）。未知项如实声明：上游 commit SHA 历史台账未记录，口径＝分支 @main，不倒推不虚构。</p>
+</div>
+
+<div class="tablewrap wrap" data-page-node-id="60sQoF4wjK6uBFDzcHDKTU">
+  <div class="card" data-page-node-id="fFlcULhSUtl9733uYYFKL3">
+    <div class="trow head" data-page-node-id="R2AlV3qNceHqGcySgCF9rz">
+      <span class="c-name" data-page-node-id="BkhhY56H27P9BFDFzDew5w">技能</span>
+      <span class="c-src" data-page-node-id="no2R2mzNLd5GJ7BBJB0s0r">来源仓库</span>
+      <span class="c-lic" data-page-node-id="wABNwWT5GWsgm3cZcbNYvL">许可（仓级＋文件级）</span>
+      <span class="c-con" data-page-node-id="ByzHxiQDjic7mPTYogEupH">体检结论</span>
+      <span class="c-st" style="text-align:right" data-page-node-id="NTohKVVGU5N8qZ4CvzCQPP">中文化状态</span>
+    </div>
+
+    <!-- 16 个同源技能合并组行；其余 6 个逐行 -->
+    <div class="group" style="border-top:1px solid var(--line)" data-page-node-id="iUWOzQoBTdzaqWt9NnNrRt">
+      <div class="gh" data-page-node-id="QwLpfWNCyxW6paWhgKCHtl">
+        <b data-page-node-id="xvD4pon1k7H0AdN3y14A80">anthropics/commerce-agents · 16 个技能</b>
+        <span data-page-node-id="b9vt860AlkiyaTYXWXzRzh">许可：Apache-2.0（包根 LICENSE）· 体检：可搬 · 中文化：zh-pass · <a href="https://github.com/anthropics/commerce-agents" target="_blank" rel="noopener">github.com/anthropics/commerce-agents</a></span>
+      </div>
+      <div class="names" data-page-node-id="fy8roaw6Lyo0YRMexuCft5">catalog-listings · commerce-architecture · commerce-evals · commerce-merchant-operations · commerce-prompt-caching · commerce-trust-safety · commerce-ui-tools · customer-care · inventory-operations · marketing-campaigns · memory-personalization · performance-insights · planning-goals · pricing-promotions · purchase-research · search-discovery</div>
+    </div>
+
+    <div class="trow zebra" style="border-top:1px solid var(--line)" data-page-node-id="backfill-1">
+      <span class="c-name">agent-browser</span>
+      <span class="c-src"><a href="https://github.com/kacperkapusciak/goldie" target="_blank" rel="noopener">kacperkapusciak/goldie</a> · <small style="color:#8A93A2">.agents/skills/agent-browser</small></span>
+      <span class="c-lic">MIT（包根 LICENSE，© Kacper Kapuściak）</span>
+      <span class="c-con">可搬</span>
+      <span class="c-st">zh-pass</span>
+    </div>
+    <div class="trow" data-page-node-id="backfill-2">
+      <span class="c-name">goldie</span>
+      <span class="c-src"><a href="https://github.com/kacperkapusciak/goldie" target="_blank" rel="noopener">kacperkapusciak/goldie</a> · <small style="color:#8A93A2">skills/goldie</small></span>
+      <span class="c-lic">MIT（包根 LICENSE，© Kacper Kapuściak）</span>
+      <span class="c-con">可搬</span>
+      <span class="c-st">zh-pass</span>
+    </div>
+    <div class="trow zebra" data-page-node-id="backfill-3">
+      <span class="c-name">frontend-design</span>
+      <span class="c-src"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a> · <small style="color:#8A93A2">skills/frontend-design</small></span>
+      <span class="c-lic">Apache-2.0（包根 LICENSE）</span>
+      <span class="c-con">可搬</span>
+      <span class="c-st">zh-pass</span>
+    </div>
+    <div class="trow" data-page-node-id="backfill-4">
+      <span class="c-name">theme-factory</span>
+      <span class="c-src"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a> · <small style="color:#8A93A2">skills/theme-factory</small></span>
+      <span class="c-lic">Apache-2.0（包根 LICENSE）</span>
+      <span class="c-con">可搬</span>
+      <span class="c-st">zh-pass</span>
+    </div>
+    <div class="trow zebra" data-page-node-id="backfill-5">
+      <span class="c-name">plus-astra-orchestrator</span>
+      <span class="c-src"><a href="https://github.com/donvito/codex-astra-luna-orchestrator" target="_blank" rel="noopener">donvito/codex-astra-luna-orchestrator</a> · <small style="color:#8A93A2">profiles/plus/agents/skills/astra-orchestrator</small></span>
+      <span class="c-lic">Apache-2.0（包根 LICENSE）</span>
+      <span class="c-con">可搬</span>
+      <span class="c-st">zh-pass</span>
+    </div>
+    <div class="trow" data-page-node-id="backfill-6">
+      <span class="c-name">pro-astra-orchestrator</span>
+      <span class="c-src"><a href="https://github.com/donvito/codex-astra-luna-orchestrator" target="_blank" rel="noopener">donvito/codex-astra-luna-orchestrator</a> · <small style="color:#8A93A2">profiles/pro/agents/skills/astra-orchestrator</small></span>
+      <span class="c-lic">Apache-2.0（包根 LICENSE）</span>
+      <span class="c-con">可搬</span>
+      <span class="c-st">zh-pass</span>
+    </div>
+
+    <div class="trow zebra" style="border-top:1px solid var(--line)" data-page-node-id="79ePHPymbp8atx7IvAEuQs">
+      <span class="c-name" data-page-node-id="RPjWMizs9N66Js6Z5cVtaV">algorithmic-art</span>
+      <span class="c-src" data-page-node-id="S415lv1gjkBK9hFcaRL5ac"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" data-page-node-id="cJtbgP7gjtXnGghRL9TmOq">anthropics/skills</a></span>
+      <span class="c-lic" data-page-node-id="lq1v7ikmvaoWJ1S8o8QP3X">Apache-2.0 · 包根＋references/LICENSE.txt 双层</span>
+      <span class="c-con" data-page-node-id="r57EzuPuHuxS6q1YGyfEXU">可搬</span>
+      <span class="c-st" data-page-node-id="HvDNZiqL7BnjBVCFPD1KNY">zh-pass</span>
+    </div>
+    <div class="trow" data-page-node-id="fVGG847xBMgxO45uQZam2z">
+      <span class="c-name" data-page-node-id="l5Kc2G2FPNbbAEf8Auu9Bd">brand-guidelines</span>
+      <span class="c-src" data-page-node-id="BENr5jTgYjxXqRvUILpZFr"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" data-page-node-id="mRhwjm2tkh7yrLXFiikahR">anthropics/skills</a></span>
+      <span class="c-lic" data-page-node-id="RUiBs2BbyAz5frXUZi7z3h">Apache-2.0 · 包根＋references/LICENSE.txt 双层</span>
+      <span class="c-con" data-page-node-id="Irx7UpL2ctOHiEY2cBOk1C">可搬</span>
+      <span class="c-st" data-page-node-id="JZviD4DxqzVklD8cjNxoRn">zh-pass</span>
+    </div>
+    <div class="trow zebra" data-page-node-id="d8vEEehDphtP91Sk29S1kc">
+      <span class="c-name" data-page-node-id="vBWWhUboAQdN7e15rCoFHc">internal-comms</span>
+      <span class="c-src" data-page-node-id="PjD2j3hTT19KigqSP7aEBo"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" data-page-node-id="3k9i6AS08l7BsSYnqi7uPj">anthropics/skills</a></span>
+      <span class="c-lic" data-page-node-id="DDOKUVhmQEx8851nk6Dv2E">Apache-2.0 · 包根＋references/LICENSE.txt 双层</span>
+      <span class="c-con" data-page-node-id="aMwYRzc6G3zxRhUgJmQJ4o">可搬</span>
+      <span class="c-st" data-page-node-id="b7ckuYkOgtcyGB1iVSIK7s">zh-pass</span>
+    </div>
+    <div class="trow" data-page-node-id="cC8ZhsaPG8a4iRBSPlE6ZY">
+      <span class="c-name" data-page-node-id="Tvo1Ef7T6MsZdWhWb5ZTjc">discernment-nudge</span>
+      <span class="c-src" data-page-node-id="pLUlMXUaoP09CeyGmQvzjN"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" data-page-node-id="HVFNvc1JmhmhI8frK1yt2a">anthropics/skills</a></span>
+      <span class="c-lic" data-page-node-id="ya8AOADJYxjGteqgi3rBCw">Apache-2.0 · 包根＋references/LICENSE.txt 双层</span>
+      <span class="c-con" data-page-node-id="N3vagH6DiQhFsQ1chfWPpF">可搬</span>
+      <span class="c-st" data-page-node-id="QMBtHe7JZ6bVEqHDonUg6z">zh-pass</span>
+    </div>
+    <div class="trow zebra" data-page-node-id="hQ06pRzaf4BBgkY1xAS8nr">
+      <span class="c-name" data-page-node-id="EuiOnt1z9dw4FZxoA7TKCq">slack-gif-creator</span>
+      <span class="c-src" data-page-node-id="BmHNguQClA9NAR6ZPCH0Pv"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" data-page-node-id="scoj7POAjFX5BSNWYMCCnd">anthropics/skills</a></span>
+      <span class="c-lic" data-page-node-id="eyhZxFNR6r4wcFcgEZ4Kf4">Apache-2.0</span>
+      <span class="c-con con-warn" data-page-node-id="ZIRduvtBzXHQMHIyG0nohS">需创作</span>
+      <span class="c-st r" data-page-node-id="gMfD4PDTvUpEnwwdCYH9hn">local-only</span>
+    </div>
+    <div class="trow" data-page-node-id="BMsHE54ShaOFQ9gBBAVIDq">
+      <span class="c-name" data-page-node-id="DgADGvv23m7nGXEp47r1mR">github-skill-porter</span>
+      <span class="c-src" style="font-family:var(--sans)" data-page-node-id="5NofpbEtRDWzImNUSmG3VE">本项目自研 · 无上游外链</span>
+      <span class="c-lic" data-page-node-id="1O9Wbj5czg1JJQzFyeBjCc">Apache-2.0 · 包根</span>
+      <span class="c-con" data-page-node-id="lCpByP4uQDAqMX4ie4BKJc">可搬</span>
+      <span class="c-st" data-page-node-id="TRcV8AkEvTI1W8Hec7LfB8">zh-pass</span>
+    </div>
+    <div class="trow zebra" style="display:block" data-page-node-id="EJG7vpfVc2oxWV5SgqpJXM">
+      <div class="trow" style="padding:0" data-page-node-id="tCrHyyeoqltfEMZY6TXoY9">
+        <span class="c-name" data-page-node-id="YCTFXAEbddiL1HyfoSGNTb">video-transcribe</span>
+        <span class="c-src" data-page-node-id="WOUhm6biWqcwCxRJ15IVqs"><a href="https://github.com/wendy7756/AI-Video-Transcriber" target="_blank" rel="noopener" data-page-node-id="HDWiol3DPVt0pZ1AtzO2mc">wendy7756/AI-Video-Transcriber</a></span>
+        <span class="c-lic" data-page-node-id="nh5qK2mvgBlUSGMVpwBgn4">Apache-2.0 · 包根＋assets/LICENSE</span>
+        <span class="c-con" data-page-node-id="uXA4PZrknNUBGQDi2Gpioz">可搬</span>
+        <span class="c-st" data-page-node-id="IpL1myiwczD0nAAC0zFUAz">zh-pass</span>
+      </div>
+      <div class="star" data-page-node-id="ZggtPpV0GeW2GAnQLfMCo0">★ 2026-09-26 示范案例 · 四件套齐（对照片段 / 术语表 / 门禁复跑证据 / 改动清单）——见<a href="index.html#samples" style="border-bottom:1px solid var(--cinnabar)" data-page-node-id="gt4bxJcjHNhsmSEBtaW4sG">主站案例区</a></div>
+    </div>
+
+    <div class="group" style="border-top:1px solid var(--line)" data-page-node-id="n9-batch7-group">
+      <div class="gh" data-page-node-id="n9-batch7-gh">
+        <b data-page-node-id="n9-batch7-name">Ryze-AI-Adgent/open-seo-mcp-skills · 8 个技能（第 7 批）</b>
+        <span data-page-node-id="n9-batch7-meta">许可：MIT（包根 LICENSE）· 体检：可搬 · 中文化：zh-pass · <a href="https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills" target="_blank" rel="noopener">github.com/Ryze-AI-Adgent/open-seo-mcp-skills</a> · 路径 skills/&lt;slug&gt;</span>
+      </div>
+      <div class="names" data-page-node-id="n9-batch7-names">ai-visibility · backlink-check · competitor-gap · content-brief · keyword-research · rank-tracking · seo-audit · seo-vs-ads</div>
+      <div class="blocker" style="color:#8A93A2" data-page-node-id="n9-batch7-note">第 7 批（2026-09-26 军团验收 PASS 后加行）：双门禁 8/8 PASS（官方校验器 11/0/0 ×8 · 本地化检查 PASS ×8）· zip 白名单 ×8 · 依赖如实声明：需自备 Ryze MCP 连接器与数据源（DataForSEO / GA4 / GSC 等），技能包交付的是方法与判据。</div>
+    </div>
+
+    <div class="redline" id="redline" style="border-top:1px solid var(--line)" data-page-node-id="hAa6igzZrcnrAS4wJGHvtA">
+      <h3 data-page-node-id="mxUOue666jFaUZDNYcsEOD">不可搬区 · 只留档，不进收录</h3>
+      <p data-page-node-id="qQrfMP0CHfJ4M8LZjiyZnf">tw93/Pake（GPL-3.0 强 copyleft，只可学习）· dograh-hq/dograh（BSD-2＋CLA，先读原文未决）· docx（Anthropic 专有）· doc-coauthoring（无 LICENSE）</p>
+      <p class="note" data-page-node-id="UgombzBNiH22PUFnxouaxf">注：slack-gif-creator 体检「需创作」——强依赖联网 Slack API，不出上传包；表格许可均为「随包」口径（仓级＋文件级路径随源记录）。</p>
+    </div>
+  </div>
+</div>
+
+<div class="foot-note wrap" data-page-node-id="jn758sbyDqb7mDHZA73V49">口径：许可按「仓级＋文件级路径」双口径登记；体检结论三选一：可搬 / 需创作 / 不可搬；中文化状态四选一：未开始 / 工序进行中 / 双门禁复跑通过 / 已上架。数据回填日 2026-09-26（晚补第 7 批 8 行）· 来源：搬运枪收录清单页数据＋《修复留痕》§四 · 主页：mojiang.ink（域名定案 2026-09-26 · .ink 在工信部许可名单内、国内可购可备案，可用性经 RDAP＋DNS 双路径实测未被注册）</div>
+<div class="foot-note wrap" data-page-node-id="N9pDisclaim20260926A" style="color:#8A93A2">防误读声明（2026-09-26）：anthropics/skills 上游 README 明示其技能「仅供演示与教育目的」，其中 docx/pdf/pptx/xlsx 为 source-available 非开源；本页收录按许可合规口径（Apache-2.0 管代码复制分发），与 Anthropic 不存在任何官方背书或生产级合作关系——许可合规与宣传口径是两回事。</div>
+
+<div class="backline wrap" data-page-node-id="UHYHOyoKzcTo0b8H37PxqN">
+  <p data-page-node-id="w7YAf2EunaQRHpexzaUIjU">看完清单，想要哪个技能的中文版？等待列表按登记先后排，只登记需求、不收钱。</p>
+  <a class="btn btn-primary" href="index.html#waitlist" data-page-node-id="fYVKlrX6Q9fpEPKda5cFX9">预约首批名额</a>
+  <a class="btn btn-ghost" href="index.html" data-page-node-id="2aSj2m5QBBJllkCUmaqhtZ">回到主页</a>
+</div>
+
+</body>
+</html>
