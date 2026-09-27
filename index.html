@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="sEIW4yxCgTaJ5hWCSe6H4C">
+<head data-page-node-id="ULEnzyBP3AmHz7Eb45zJBt">
+<meta charset="UTF-8" data-page-node-id="dWRIFO6gWcmbTb9CAFWkND">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="rjWWqHU2FZ3tpsFBvFlFXY">
+<title>mojiang · GitHub技能搬运工 · github-skill-porter — 翻完能跑的技能中文化与合规搬运引擎</title>
+<meta name="description" content="把 GitHub 的技能生态搬得进来、也搬得干净：体检先行、许可门禁、中文化四道工序、官方校验器说了算。" data-page-node-id="c6t11EbwAW8WDdWah6lUFP">
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="OatBVBvkwYcUaB8UAeldCb">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="XpsZYzej2vVdAln9sjh4z9">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@600;900&family=Geist+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" data-page-node-id="oDb7lv9EtBvnKEZnWFzQLY">
+<style>
+  /* ===== 等待列表收件邮箱配置：填入邮箱后表单按钮即真实可用 ===== */
+  /* 数据来源：用户已提供 493895536@qq.com（2026-09-26 填入）；配置为空时点击「提交预约」给出明确提示，不假装提交 */
+  :root{
+    --ink:#0E1116; --body:#5B6472; --muted:#8A93A2; --line:#E8E8EB;
+    --cinnabar:#B24A32; --cinnabar-soft:#FBEDE9; --cinnabar-light:#E08A6D;
+    --card:#F7F8FB; --paper:#FFFFFF;
+    --dark:#14181F; --dark-card:#1D222A; --dark-line:#2E3540;
+    --dark-body:#9BA3AF; --dark-soft:#C7CDD6; --term:#F0A692;
+    --sans:"Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    --mono:"Geist Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+    --disp:"Geist","Geist Mono",var(--mono);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:16px;line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1440px;margin:0 auto}
+  .pad{padding-left:120px;padding-right:120px}
+  @media(max-width:900px){.pad{padding-left:24px;padding-right:24px}}
+  .mono{font-family:var(--mono)}
+  .label{font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.08em;color:var(--cinnabar)}
+  .btn{display:inline-block;font-family:var(--sans);font-weight:600;font-size:15px;padding:13px 22px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--cinnabar);color:#fff}
+  .btn-primary:hover{background:#9c3f2a}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:#D6DBE3}
+  .btn-ghost:hover{border-color:var(--cinnabar);color:var(--cinnabar)}
+  .btn-inv{background:#fff;color:var(--cinnabar);padding:15px 26px}
+  .btn-dark{background:#1A2028;color:var(--dark-soft);border-color:var(--dark-line)}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:500;font-size:12px;color:var(--cinnabar);background:var(--cinnabar-soft);border-radius:999px;padding:6px 12px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--cinnabar)}
+  section{border-bottom:1px solid var(--line)}
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .hd{display:flex;align-items:center;gap:28px;padding:14px 120px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .logo{width:32px;height:32px;border-radius:9px;background:var(--cinnabar);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:13px}
+  .brand b{font-size:18px;font-weight:600;line-height:1.2}
+  .brand small{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
+  nav{display:flex;gap:28px;margin-left:24px}
+  nav a{font-size:15px;font-weight:500;color:var(--body)}
+  nav a:hover{color:var(--cinnabar)}
+  .hd-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  @media(max-width:1100px){nav{display:none}.hd{padding:14px 24px}}
+  /* hero */
+  .hero{display:flex;gap:64px;padding:72px 120px;align-items:flex-start}
+  .hero-copy{flex:1;min-width:0}
+  .hero h1{font-size:44px;line-height:58px;font-weight:700;margin:24px 0 0}
+  .hero h1 em{font-style:normal;color:var(--cinnabar)}
+  .hero .sub{font-size:17px;line-height:30px;color:var(--body);margin-top:24px;max-width:640px}
+  .hero-cta{display:flex;gap:12px;margin-top:8px}
+  .hero-visual{width:560px;flex-shrink:0}
+  @media(max-width:1100px){.hero{flex-direction:column;padding:48px 24px}.hero-visual{width:100%}}
+  .edge-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 16px 38px rgba(15,18,26,.07)}
+  .edge-card .head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .edge-card .head b{font-size:16px}
+  .edge-card p{font-size:14px;line-height:24px;color:var(--body)}
+  .term{background:var(--dark);border-radius:12px;padding:18px;margin-top:18px}
+  .term div{font-family:var(--mono);font-size:12px;color:var(--term);line-height:2}
+  /* metrics strip */
+  .cred{padding:36px 120px}
+  .cred-row{display:flex;gap:48px;flex-wrap:wrap;align-items:flex-end}
+  .metric b{font-family:var(--disp);font-size:28px;font-weight:600;line-height:1.2}
+  .metric span{display:block;font-size:12px;color:var(--muted);margin-top:5px}
+  .cred-src{margin-left:auto;text-align:right}
+  .cred-src .s1{font-size:13px;font-weight:500;color:var(--body)}
+  .cred-src .s2{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:5px}
+  .cred-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:18px}
+  @media(max-width:900px){.cred{padding:28px 24px}.cred-src{margin-left:0;text-align:left}}
+  /* dark section */
+  .dark{background:var(--dark);color:var(--dark-soft);border-bottom:none}
+  .dark .label{color:var(--cinnabar-light)}
+  .dark h2{font-size:38px;line-height:52px;font-weight:700;color:#F7F8FB;margin-top:14px}
+  .dark .desc{font-size:17px;line-height:29px;color:var(--dark-body);margin-top:14px;max-width:820px}
+  .grid4{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+  @media(max-width:900px){.grid4{grid-template-columns:1fr}}
+  .pt{background:var(--dark-card);border-radius:16px;padding:26px}
+  .pt .no{font-family:var(--mono);font-weight:600;font-size:12px;color:var(--cinnabar-light)}
+  .pt h3{font-size:20px;color:#F7F8FB;margin:10px 0 8px}
+  .pt p{font-size:15px;line-height:26px;color:var(--dark-body)}
+  /* generic section head */
+  .sec{padding:88px 120px}
+  @media(max-width:900px){.sec{padding:56px 24px}}
+  .sec h2{font-size:38px;line-height:52px;font-weight:700;margin-top:14px}
+  .sec .desc{font-size:17px;line-height:29px;color:var(--body);margin-top:14px;max-width:820px}
+  .tint{background:var(--card)}
+  /* capability cards */
+  .caps{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:20px;margin-top:48px}
+  @media(max-width:1100px){.caps{grid-template-columns:1fr}}
+  .cap{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+  .cap h3{font-size:22px;margin:16px 0 10px}
+  .cap p{font-size:15px;line-height:27px;color:var(--body)}
+  .cap .kw{font-family:var(--mono);font-size:12px;color:var(--cinnabar);margin-top:14px}
+  .cap .divider{height:1px;background:var(--line);margin:18px 0 14px}
+  .cap .mini-label{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--muted)}
+  .cap .row{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:9px;padding:10px 12px;margin-top:10px}
+  .cap .row b{font-size:13px;font-weight:400;flex:1}
+  .cap .row span{font-family:var(--mono);font-size:12px;color:var(--cinnabar)}
+  .principles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:48px}
+  @media(max-width:900px){.principles{grid-template-columns:1fr}}
+  .pr{display:flex;gap:12px;align-items:flex-start}
+  .pr .abc{width:26px;height:26px;border-radius:50%;background:var(--cinnabar-soft);color:var(--cinnabar);font-family:var(--mono);font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .pr p{font-size:14px;line-height:23px;font-weight:500}
+  /* usage cards */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+  @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+  .use{background:var(--card);border:1px solid #EDEDF0;border-radius:18px;padding:28px}
+  .use h3{font-size:20px;margin:14px 0 8px}
+  .use p{font-size:15px;line-height:26px;color:var(--body)}
+  .cmd{font-family:var(--mono);font-size:12px;color:var(--term);background:var(--dark);border-radius:8px;padding:9px 12px;margin-top:16px}
+  /* sample card */
+  .sample{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px;box-shadow:0 14px 34px rgba(15,18,26,.06);display:flex;gap:48px;margin-top:48px}
+  @media(max-width:1100px){.sample{flex-direction:column}}
+  .sample-l{width:420px;flex-shrink:0}
+  @media(max-width:1100px){.sample-l{width:100%}}
+  .sample-l .arch{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--cinnabar)}
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+  .mgrid b{font-family:var(--disp);font-size:30px;font-weight:600;line-height:1.2}
+  .mgrid span{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+  .sample-r{flex:1}
+  .sample-r .fh{font-size:13px;font-weight:500;color:var(--muted)}
+  .frow{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:10px;padding:13px 16px;margin-top:12px}
+  .frow b{font-family:var(--mono);font-size:13px;font-weight:400;flex:1}
+  .frow svg{flex-shrink:0}
+  .sample-note{font-size:12px;line-height:20px;color:var(--muted);margin-top:18px}
+  /* case section */
+  .case{background:#F8F9FB;border-bottom:1px solid var(--line)}
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+  @media(max-width:1100px){.case-grid{grid-template-columns:1fr}}
+  .case-card{background:#fff;border-radius:18px;padding:40px}
+  .case-card .tag{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--muted)}
+  .case-card h3{font-size:17px;font-weight:500;margin:10px 0 16px}
+  .case-card p{font-size:13px;line-height:22px;color:var(--body);margin-top:12px;white-space:pre-line}
+  .case-card .hl{color:var(--ink)}
+  .case-card .warn{color:var(--cinnabar)}
+  .case-card .gl{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--cinnabar);margin-top:20px}
+  .case-foot{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:32px}
+  /* versions */
+  .status-line{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:18px}
+  .ver{display:flex;gap:32px;padding:28px 0}
+  .ver + .ver{border-top:1px solid #E8EAEE}
+  .ver .no{width:130px;flex-shrink:0}
+  .ver .no b{font-family:var(--mono);font-weight:600;font-size:13px;color:var(--cinnabar)}
+  .ver .no span{display:block;font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:6px}
+  .ver h3{font-size:19px;font-weight:600}
+  .ver p{font-size:15px;line-height:26px;color:var(--body);margin-top:10px}
+  /* script cards */
+  .script-hero{background:var(--cinnabar-soft);border-radius:20px;padding:32px;display:flex;gap:32px;margin-top:48px}
+  @media(max-width:1100px){.script-hero{flex-direction:column}}
+  .script-hero .l{flex:1}
+  .script-hero .tag{display:inline-block;font-family:var(--mono);font-weight:600;font-size:11px;color:var(--cinnabar);background:#fff;border-radius:999px;padding:4px 10px}
+  .script-hero h3{font-size:22px;margin:12px 0 8px}
+  .script-hero p{font-size:15px;line-height:26px;color:#6B4A3E}
+  .script-hero .meta{font-family:var(--mono);font-size:12px;color:#8A6A5C;margin-top:12px}
+  .tree{background:var(--dark);border-radius:12px;padding:18px;width:400px;flex-shrink:0;align-self:flex-start}
+  @media(max-width:1100px){.tree{width:100%}}
+  .tree div{font-family:var(--mono);font-size:12px;line-height:2}
+  .tree .r1{color:var(--term)}
+  .tree .r2{color:var(--dark-body)}
+  .grid2 .sc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
+  .sc h3{font-size:18px}
+  .sc p{font-size:14px;line-height:24px;color:var(--body);margin-top:8px}
+  .sc .meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:10px}
+  /* install block */
+  .install{background:var(--dark);border-radius:20px;padding:32px;margin-top:48px;color:var(--dark-soft)}
+  .install h3{font-size:22px;color:#F2F4F7}
+  .install .idesc{font-size:14px;line-height:25px;color:var(--dark-body);margin-top:10px;max-width:720px}
+  .install .paths{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:26px}
+  @media(max-width:1100px){.install .paths{grid-template-columns:1fr}}
+  .path{background:var(--dark-card);border-radius:14px;padding:20px}
+  .path b{font-family:var(--mono);font-weight:600;font-size:13px;color:var(--term)}
+  .path p{font-size:14px;line-height:25px;color:var(--dark-soft);margin-top:10px}
+  .path .cbox{background:#0E1116;border-radius:12px;padding:18px;margin-top:12px}
+  .path .cbox div{font-family:var(--mono);font-size:12px;line-height:2;color:var(--term)}
+  .path .cbox .dim{color:var(--dark-body)}
+  .path .os{font-family:var(--mono);font-size:12px;color:#6A7280;margin-top:12px}
+  .install .fmt{font-family:var(--mono);font-size:12px;color:#6A7280;margin-top:24px}
+  /* pricing */
+  .tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:48px}
+  @media(max-width:1100px){.tiers{grid-template-columns:1fr}}
+  .tier{background:#fff;border:1px solid var(--cinnabar);border-radius:18px;padding:30px;box-shadow:0 16px 38px rgba(15,18,26,.09);display:flex;flex-direction:column}
+  .tier .nm{display:flex;align-items:center;gap:10px}
+  .tier .nm b{font-size:17px}
+  .tier .rec{font-size:12px;font-weight:500;color:#fff;background:var(--cinnabar);border-radius:999px;padding:5px 12px}
+  .tier .price{display:flex;align-items:baseline;gap:6px;margin-top:16px}
+  .tier .price b{font-family:var(--disp);font-size:38px;font-weight:600;line-height:1.1}
+  .tier .price span{font-size:13px;color:var(--muted)}
+  .tier ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .tier li{display:flex;gap:10px;font-size:15px;color:var(--body)}
+  .tier li svg{flex-shrink:0;margin-top:5px}
+  .tier .btn{margin-top:20px;text-align:center}
+  .pay-note{display:flex;gap:24px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-top:28px;flex-wrap:wrap}
+  .pay-note .ok{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--body)}
+  .pay-note .ent{font-size:13px;font-weight:500;color:var(--cinnabar)}
+  /* waitlist form */
+  .waitlist{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 36px;margin-top:28px}
+  .waitlist h3{font-size:22px;margin-top:10px}
+  .waitlist .wdesc{font-size:15px;line-height:26px;color:var(--body);margin-top:8px}
+  .fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:24px}
+  @media(max-width:900px){.fields{grid-template-columns:1fr}}
+  .field label{font-size:13px;font-weight:500;display:block}
+  .field input{width:100%;margin-top:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14px;font-family:var(--sans);color:var(--ink);outline:none}
+  .field input:focus{border-color:var(--cinnabar)}
+  .submit-row{display:flex;align-items:center;gap:16px;margin-top:24px;flex-wrap:wrap}
+  .submit-row .note{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  #form-msg{font-size:13px;color:var(--cinnabar);margin-top:12px;min-height:20px}
+  /* closing dark */
+  .closing{background:var(--dark);border-bottom:none}
+  .close-grid{display:flex;gap:48px;align-items:flex-start}
+  @media(max-width:1100px){.close-grid{flex-direction:column}}
+  .close-copy{flex:1}
+  .closing .label{color:var(--term)}
+  .closing h2{font-size:40px;line-height:54px;font-weight:700;color:#F6F5F2;margin-top:14px}
+  .closing .desc{font-size:17px;line-height:30px;color:#B0B6C0;margin-top:14px}
+  .close-cta{display:flex;gap:12px;margin-top:30px}
+  .qcard{background:var(--dark-card);border:1px solid var(--dark-line);border-radius:18px;padding:28px;width:420px;flex-shrink:0}
+  @media(max-width:1100px){.qcard{width:100%}}
+  .qcard .qh{font-family:var(--mono);font-weight:600;font-size:12px;color:var(--term)}
+  .qcard .q{display:flex;gap:10px;margin-top:14px}
+  .qcard .q i{font-style:normal;font-family:var(--mono);font-weight:600;color:var(--cinnabar-light)}
+  .qcard .q p{font-size:15px;line-height:24px;color:var(--dark-soft)}
+  .qcard .qnote{font-family:var(--mono);font-size:11px;color:#6A7280;margin-top:16px}
+  /* footer */
+  footer{padding:64px 120px}
+  @media(max-width:900px){footer{padding:48px 24px}}
+  .ft-top{display:flex;gap:64px}
+  @media(max-width:1100px){.ft-top{flex-direction:column}}
+  .ft-brand{width:360px;flex-shrink:0}
+  @media(max-width:1100px){.ft-brand{width:100%}}
+  .ft-brand p{font-size:14px;line-height:24px;color:var(--body);margin-top:14px}
+  .ft-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;flex:1}
+  @media(max-width:900px){.ft-cols{grid-template-columns:1fr 1fr}}
+  .ft-cols h4{font-size:13px;font-weight:500;color:var(--muted)}
+  .ft-cols a{display:block;font-size:14px;color:var(--body);margin-top:12px}
+  .ft-cols a:hover{color:var(--cinnabar)}
+  .ft-line{height:1px;background:#EDEDEF;margin:48px 0}
+  .giant{font-family:var(--disp);font-weight:900;font-size:150px;line-height:150px;color:#EDE9E4;letter-spacing:-.02em;white-space:nowrap;overflow:hidden}
+  @media(max-width:1100px){.giant{font-size:64px;line-height:70px}}
+  .ft-bottom{display:flex;gap:24px;justify-content:space-between;margin-top:24px;flex-wrap:wrap}
+  .ft-bottom .cp{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .ft-bottom .st{font-size:13px;color:var(--body)}
+</style>
+</head>
+<body data-page-node-id="bAckenIfAXMoiTkVCt2ZQs">
+
+<header data-page-node-id="KUC9uAmiCnaZz6nJ0xx9hn">
+  <div class="hd wrap" data-page-node-id="4hEWrW4CcFdSoFjREigaf4">
+    <a class="brand" href="index.html" data-page-node-id="2umKOyxK8Beaxyrfv4y1PS">
+      <span class="logo" data-page-node-id="IPYhrE8nhkwZLRijsZ1OJY">SP</span>
+      <span data-page-node-id="0RJ1NvpJYb23BqvFsB4JJR"><b data-page-node-id="WBXeldczVnUQxCQ8IdlaMJ">GitHub技能搬运工</b><small data-page-node-id="bYbt1mr7NA1IgtMgctKHQC">mojiang.ink · github-skill-porter</small></span>
+    </a>
+    <nav data-page-node-id="xMLw4sGnAv3olbQBWGyEXf">
+      <a href="#capabilities" data-page-node-id="xi7ES0OQeq8i2AwBD1hAcv">能力</a>
+      <a href="#usage" data-page-node-id="iOnSpLPdyqcTvaf0xXCjo0">用法</a>
+      <a href="#versions" data-page-node-id="x5NKYSSzIVyFoL9WPU5FYJ">版本</a>
+      <a href="#scripts" data-page-node-id="l7OlE3xfcemZLVoXMVlhyZ">脚本货架</a>
+    </nav>
+    <div class="hd-right" data-page-node-id="xwRWK0ncOPyNoNZjVjRIEh">
+      <span class="pill" data-page-node-id="tO5CGxhA1WiLCAc0OWS3Ch">v2.4.0</span>
+      <a class="btn btn-ghost" href="#install" data-page-node-id="KzcKfyvgdJT9yiBRHxx5yY">读 SKILL.md</a>
+      <a class="btn btn-primary" href="listing.html" data-page-node-id="U9kN71n7HvbSTiyrXsqIDn">看收录清单</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero wrap" data-page-node-id="iALIzpBHcACwNxhiy3SAJ6">
+  <div class="hero-copy" data-page-node-id="Qmo5ofZ6B4GJP8XGcJmJae">
+    <span class="pill" data-page-node-id="4UEl88KKPpcbq1w33EYinM"><span class="dot" data-page-node-id="vTQozVqSDRGOoBkWFNDYk5"></span>v2.4.0 · 2026-09 收录自研 · Apache-2.0</span>
+    <h1 data-page-node-id="JJS8QWGjEvHEgvF1LTqBWK">把 GitHub 的技能生态，<br data-page-node-id="FjW5cR38mTBDEeHh36tuOI">搬得进来，<em data-page-node-id="ZEyGFHC2u30LaCI3azcamP">也搬得干净。</em></h1>
+    <p class="sub" data-page-node-id="Dr5DViIEzAOx8l02hbbJ6k">让中文用户第一次能用上英文技能生态：翻完能跑——中文化四道工序、合成后双门禁复跑、官方校验器说了算；许可按路径分级、归属声明随包；batch-report 与验收报告交付，每句话背后都有一个文件。</p>
+    <div class="hero-cta" style="margin-top:24px" data-page-node-id="WCgyDFnKkHDcrYz5NZpC0B">
+      <a class="btn btn-primary" href="listing.html" data-page-node-id="j09GdhYWI2UeaLZKK4ZVBQ">看收录清单</a>
+      <a class="btn btn-ghost" href="#install" data-page-node-id="OZL0dpRqXFFeN7AMnop9oR">读 SKILL.md</a>
+    </div>
+  </div>
+  <div class="hero-visual" data-page-node-id="AvXGrgcv4wpExoEPtqOM9L">
+    <div class="edge-card" data-page-node-id="72tJEQ13BHu7GXGDnWCONW">
+      <div class="head" data-page-node-id="IPf73Oy6oIUSTLe2cZ4FWj">
+        <b data-page-node-id="vUy8dSGBjJeoAmstnYuYgF">边界先行</b>
+        <span class="pill" data-page-node-id="xqSVbtwFSl2ttIHUB4HkC6">自研原创 · Apache-2.0</span>
+      </div>
+      <p data-page-node-id="TVMoBv4QnDdcc0gbCAkHMD">不做技能从零创作，不代写领域方法论，不伪造上架物料。收的每一个技能都过许可准入门禁——无许可拒收，copyleft 只留本地，宽松许可强制随附许可全文与归属。收录仓 skill-arsenal 已开源（github.com/Cjs5725/skill-arsenal），本页逐条可回溯。</p>
+      <div class="term" data-page-node-id="vKjp2e4fq8JQykWdg93P0w">
+        <div data-page-node-id="1XgemoYdJW7c26hNZwkgwx">$ 搬运 anthropics/skills 的 frontend-design</div>
+        <div data-page-node-id="YpDVjCMxEShWnrfTYWr2pv">$ 把这个技能的说明文档整个变成中文</div>
+        <div data-page-node-id="oWUo4kAdCiMFdqsC9iFimC">$ 这 20 个仓库哪些能直接搬、哪些要创作？</div>
+        <div data-page-node-id="GqZdWHDxlgqAqRy5Yla4V9">github-skill-porter · 12 个脚本 · 双门禁交付</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 技术凭据 -->
+<section class="cred wrap" data-page-node-id="g9WD9lyg0j1xSybhszprM5">
+  <div class="cred-row" data-page-node-id="v3PBEIBOCJujvBFzz1EDsK">
+    <div class="metric" data-page-node-id="TI1Dc3XHhIrDOizEoQZh9x"><b data-page-node-id="6FqSVM6GK7yDXdbKErohfs">13</b><span data-page-node-id="el4xrRMhc0YaFyjYHkp7e9">项可验证能力</span></div>
+    <div class="metric" data-page-node-id="G0cF79KSSdfErZCwPEQHfG"><b data-page-node-id="UAAJZNFF3l90Q6DMgTdlkc">12</b><span data-page-node-id="gVQ7a6RtyiyXvmZEuAXCyE">个交付脚本</span></div>
+    <div class="metric" data-page-node-id="IYGdC0X8hlP3CtgRNcznRb"><b data-page-node-id="JLih13wDBYAmIXfDLBGjFs">35</b><span data-page-node-id="sS1sDy0WVVph7rOvzLjYZ5">条去毒规则 · 6 类</span></div>
+    <div class="metric" data-page-node-id="8admAABLyeSf7MghaR87MU"><b data-page-node-id="qqGDVtyGJ8a5tgspR8VmwE">4</b><span data-page-node-id="C4qGnHdduFQxDu3HjxYtkV">道中化工序</span></div>
+    <div class="metric" data-page-node-id="JgzFRaZReZw9rEDQCU0oic"><b data-page-node-id="pvsTLABnHQFw1HCnYd6Bj5">212</b><span data-page-node-id="473TJIvY0GoT19AZys50wk">个可组合方法论单元</span></div>
+    <div class="cred-src" data-page-node-id="QLSQlk2KbcknVvcme33KI3">
+      <div class="s1" data-page-node-id="fMOwLuf5rwPZQSO6mxZ41r">能力与判据全部出自技能包自带 SKILL.md v2.4.0（Apache-2.0，自研原创）</div>
+      <div class="s2" data-page-node-id="TYD3qWlWEE4RSH3b2sRSO5">实测口径：22 技能拆解 212 单元 · astra 双子合并零丢失 · 2026-09-25 核对</div>
+    </div>
+  </div>
+  <div class="cred-note" data-page-node-id="2eT6xpPDxTix4FtCqsmgRw">数字口径：12 脚本＝体检 1 · 转换 2 · 合规 3 · 中文化 3 · 桥接 1 · 重组 2（对应 05 段货架逐卡）；212 单元＝组合实验台对 22 技能拆解实测；完整能力构成清单见技能包 SKILL.md v2.4.0</div>
+</section>
+
+<!-- 定位说明（暗） -->
+<section class="dark" data-page-node-id="MhWdnrv2sYQTZIAjICxCzE">
+  <div class="sec wrap" data-page-node-id="RbKFqQjblDVgkJicNG6hl7">
+    <span class="label" data-page-node-id="IGbgZajXW5DcrwHIXqtfPu">技能搬运 · 合规门禁 · 中文化</span>
+    <h2 data-page-node-id="2AeqOtroGTPOjrdrzZ98k3">为什么不用手工搬：每一步都得有判定，而判定得可复现</h2>
+    <p class="desc" data-page-node-id="A9vsUjukkI4xoj60ld37bZ">同样一句话，差别在下面四件事上。每一条都写在工具自己的说明里，而不是页面上的一句承诺。</p>
+    <div class="grid4" data-page-node-id="4rxzeRNCTlQPCCc1v9ERPL">
+      <div class="pt" data-page-node-id="4crzCDVIxzYjiMF5aNi7KE"><div class="no" data-page-node-id="t05FVJqlrvkPqcQzFa00th">01</div><h3 data-page-node-id="D9vJlvngzHCWmk2xvcgLYW">体检先行</h3><p data-page-node-id="jl8bcLtTvLZVg235PpG6s8">动手前就知道能不能搬：五类风险（外部依赖、目录层级、保留词、许可证、工具名）逐项给等级与处置动作，结论强制三选一。</p></div>
+      <div class="pt" data-page-node-id="fnDTypy3BpXa8ILHTUESnu"><div class="no" data-page-node-id="jPzhwpjKMo4ghCyDXgFYGO">02</div><h3 data-page-node-id="ZVGsvyPig7Ud186M7PRjhz">合规是门禁，不是提示词</h3><p data-page-node-id="FOeGEz8cHH9ZJZ46uxYSSZ">许可两道具门——「能否搬运」与「能否上架」分开判定；去毒审计 35 条规则扫 6 类风险，硬问题非零退出、阻断交付。</p></div>
+      <div class="pt" data-page-node-id="oxOgfoj7pX6PdBYBxZG3Dy"><div class="no" data-page-node-id="AdPSIyuYAVoEo2GAcYc1Yf">03</div><h3 data-page-node-id="8u7pzaD5YQoDr3Ta5LB9Ri">中文化拆成四道工序</h3><p data-page-node-id="lvD9YmL5ZiEsLBHbJV1Xol">通读拆解、术语落定、逐段翻译、合成自检——中间产物全是可检查的文件，重做任何一道都不牵连其余。</p></div>
+      <div class="pt" data-page-node-id="NrioxMz1lBLZBHuU3m2nHy"><div class="no" data-page-node-id="5UhClKQf4ZAPMAEQS9Ar5F">04</div><h3 data-page-node-id="hSfbzQugCeJDCWYU1rlMXR">官方校验器说了算</h3><p data-page-node-id="zUocYQI2UtVB4ugcUZmO8r">自检与平台门禁分开设：交付前必跑平台官方校验器，逐项对账，不拿「我检过了」顶数。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 能力地图 -->
+<section id="capabilities" class="sec tint wrap" data-page-node-id="D7bT7gIcoAvtuDD3KOPobn">
+  <span class="label" data-page-node-id="349Za2qQ7vcZKOsyxt8ZV9">01 / 能力地图</span>
+  <h2 data-page-node-id="DmIkjHN1E7zgkqH6GRY44A">四块能力，一条生产链</h2>
+  <p class="desc" data-page-node-id="lKaG9thKKciiS71n7GVtbB">从候选榜单到可上架的技能包，中间隔着体检、转换、许可、去毒、中文化五道判定。这里把它们做成脚本化门禁，每一步的输出都是可检查的文件。</p>
+  <div class="caps" data-page-node-id="SBVrzM70Q9hxRmnES0IjDE">
+    <div class="cap" data-page-node-id="DcDFKA1zi6HUZte5LTAU2M">
+      <h3 data-page-node-id="1mY1jK6paO3BoQGapPABaM">翻完能跑 · 中文化四道工序</h3>
+      <p data-page-node-id="cReC6vIdbz2WGpEK6J5OOM">A 通读拆解由脚本出计划，B 术语以 glossary 为唯一标准，C 逐段翻译判断活不跨工序，D 合成后双门禁复跑＋官方校验器说了算，重打包交付。</p>
+      <div class="kw" data-page-node-id="SL6HIo1mBdCZ7XFwbh7zBX">plan · glossary · 双门禁 · 官方校验器</div>
+    </div>
+    <div class="cap" data-page-node-id="iBW5snHo8BQkaCs9l0I9RM">
+      <h3 data-page-node-id="I9mNzTB0ymSpTtUS709PWd">搬运与转换引擎</h3>
+      <p data-page-node-id="w0BnsjBV7wlOf1LPAxvKUp">批量搬运（清单文件或多源叠加），双轨产出本地版与平台版 zip（root 直铺、解压即传），逐条改动清单写明改了什么、为什么改。</p>
+      <div class="kw" data-page-node-id="woOfy9VC7oh2lSA9Zmi74v">批量 · 双轨 · 改动清单</div>
+      <div class="divider" data-page-node-id="81QbSdoOGScNzkSL7emwUp"></div>
+      <div class="mini-label" data-page-node-id="uxbKUvuGvLftBOydoYuHJU">链上三道固定判定</div>
+      <div class="row" data-page-node-id="xXWI46uLA0zvwilpASHluD"><b data-page-node-id="Ye1CGaNoIUoV1xzraPQspL">可迁移性体检 · 五类风险</b><span data-page-node-id="aOm7U4LGBa0DNFgAqsDFix">已固化</span></div>
+      <div class="row" data-page-node-id="l2mz9TBQdZz7hnjp4B0qyR"><b data-page-node-id="0CguUhUYatGGfrdFILZnP5">许可准入 · 两道闸</b><span data-page-node-id="diyEWIepAErBBTGDqTNH9D">已固化</span></div>
+      <div class="row" data-page-node-id="75mziRAQYCgWWpu8ofAegi"><b data-page-node-id="f3sMvE2QBZSbKJ6bJ1xdoO">批量汇总 · batch-report</b><span data-page-node-id="X3N5TRjWfFHSv7VYHWp6BQ">已固化</span></div>
+    </div>
+    <div class="cap" data-page-node-id="eSSUiJJE3VFT4Rmf6rWfxJ">
+      <h3 data-page-node-id="GtWOeiYZeMwoWxNELynwm5">拆解与重组</h3>
+      <p data-page-node-id="WL5u2VW72HekljqdCG8tTD">N:1 合并把同能力多配置收敛为单一技能（相似度准入、零丢失验收）；组合实验台把方法论拆成单元重组为新技能草稿——合并收同、组合收异。</p>
+      <div class="kw" data-page-node-id="fmZHxcJEgKdjC1iG6hkJLZ">零丢失 · 212 单元 · 人工终审</div>
+    </div>
+  </div>
+  <div class="principles" data-page-node-id="PN68H9d5gvh9vzAxM5LEvG">
+    <div class="pr" data-page-node-id="dJxEbjZ0iHytFQO06YiAL0"><span class="abc" data-page-node-id="WwXU0LrGRlHKOc2wkiDi2e">A</span><p data-page-node-id="QRxTzFYl5etBY9XuLgVIGf">收得干净：许可准入 + 35 条去毒规则，硬问题阻断交付、撤下上传包</p></div>
+    <div class="pr" data-page-node-id="FFPiEBsQVauihsDfoGXiBs"><span class="abc" data-page-node-id="zgljWGBcvxw6trVtYVOY5w">B</span><p data-page-node-id="kLbDx8FPzY8FI41Ib4bGnK">判定与翻译分开：脚本只管覆盖率、锚点、引用，语义翻译按 SOP 由人执行</p></div>
+    <div class="pr" data-page-node-id="jYDokmFQ1QOfVGPQExm0x7"><span class="abc" data-page-node-id="JFSc7zWnOvMCpOJJqxFT91">C</span><p data-page-node-id="cGW61OAImEkZVRjZzXW7K8">官方校验器说了算：自检通过 ≠ 平台通过，两件事分开写、分开验</p></div>
+  </div>
+</section>
+
+<!-- 多种入口 -->
+<section id="usage" class="sec wrap" data-page-node-id="q9GNJWICjqPtS5pTgC22fZ">
+  <span class="label" data-page-node-id="AMGIL0demGMCYY0P7FRmVC">02 / 四种用法</span>
+  <h2 data-page-node-id="Z2a0eABCtje8bPYLtHPyZN">同一个引擎，四种进场方式</h2>
+  <p class="desc" data-page-node-id="PGBXxK6LoWZDqUj1fzX0Ck">搬一个、批量搬、接榜单、拆了重组——都不用改工具，换个说法就行。</p>
+  <div class="grid2" data-page-node-id="s9HzNPEMcXQ9i4kOtoXAna">
+    <div class="use" data-page-node-id="JlLgauC2AiGbFTNYGHbCmv"><h3 data-page-node-id="qzR7LK1rDjTl89eFP1D7Gj">自然语言入口</h3><p data-page-node-id="76vu3CdxPlqvEK2g6KchbK">一句话说清需求：搬哪个仓库、要不要中文。引擎自动体检、转换、出包。</p><div class="cmd" data-page-node-id="PEUp9IJDYrkgBfQANa5Ohg">「搬运 anthropics/skills 的 frontend-design，并且整个变中文」</div></div>
+    <div class="use" data-page-node-id="L9iBmsxcvMWNDKvhHi7nIm"><h3 data-page-node-id="jp3ErqE0lTJBQwRJg9HfdG">终端工作台</h3><p data-page-node-id="eC7wR2LI7Kzwv3HspUfcMW">清单文件一次挂多个源（GitHub 与本地混用），每技能独立产出互不覆盖。</p><div class="cmd" data-page-node-id="9sUpD1UKoT11mZvGZAk0cj">port_skill.py --batch manifest.txt</div></div>
+    <div class="use" data-page-node-id="mcePUfFb4SGxAVEdTeRIF4"><h3 data-page-node-id="30U460dtF4bD3UCvsNzEgX">本机应用 Web</h3><p data-page-node-id="TLuXwuOIZdKtjVQ5GjJg1A">另一套流程产出的候选榜单直接接进来：自动分类 A 可搬 / B 需创作 / C 不可搬，产出可喂批量的 manifest。</p><div class="cmd" data-page-node-id="QiF9GOWZDPdOLhQbJUKh0C">bridge_trending.py &lt;榜单报告&gt;</div></div>
+    <div class="use" data-page-node-id="CDPXHLL6wM6md7SLqi3tAK"><h3 data-page-node-id="uwHtgyx4Z7subHm5LQNSX3">外部 Agent · MCP + Skills</h3><p data-page-node-id="CJpHvE66n5W8zb5BcUoUJX">把已交付技能的方法论拆成单元，按新目标组合成前所未有的技能草稿，三道硬闸加资源随迁。</p><div class="cmd" data-page-node-id="0p9y0iiwD3If6o6zY4ykTC">decompose_skills.py → compose_skill.py</div></div>
+  </div>
+</section>
+
+<!-- 样例 -->
+<section id="samples" class="sec tint wrap" data-page-node-id="Y4E9l3U0CDk2WbjEBlVY6J">
+  <span class="label" data-page-node-id="JF0suBYR6rAkFlzRkftjBM">03 / 仓库公开产物</span>
+  <h2 data-page-node-id="gDzkNYTc1scCsudbuEy76i">不讲能力，直接看产物</h2>
+  <p class="desc" data-page-node-id="nKnx1VXnxLgHT7u1hYrvEr">以下为引擎自己的真实交付记录，出自收录仓 skill-arsenal 与 2026-09-26 第 7 批验收报告，逐条可回溯。</p>
+  <div class="sample" data-page-node-id="LQl3D6zItZIAdZNDQsVRKS">
+    <div class="sample-l" data-page-node-id="66CG86TH75HpPRMXxLvQ8a">
+      <div class="arch" data-page-node-id="3Otkqf7yEgzIvOIVBE92YP">收录仓 skill-arsenal · 2026-09-27 · 与清单页同口径</div>
+      <div class="mgrid" data-page-node-id="oirSGGRw6GnCHExKGH2pVI">
+        <div data-page-node-id="UsIaNNGfOzwqzJCLpwCQR8"><b data-page-node-id="eJj431lRCwfA50wZiF15Aa">37</b><span data-page-node-id="9l8h0hZeAKcgI2IxJA0nFH">收录技能（已开源）</span></div>
+        <div data-page-node-id="AT8vqHIndrNACX8p60Gb2r"><b data-page-node-id="Zx9dMswUbfZFxPBxeSRtKS">36+1</b><span data-page-node-id="DlhqZCE7d3OQO2vLPOAxcu">上游转换 + 自研原创</span></div>
+        <div data-page-node-id="AOTCp9fZcfOXHRUXWeXOTs"><b data-page-node-id="UAliUoKAeWHVtk7WKZYWKh">8/8</b><span data-page-node-id="PRtwI6MF6C3jTlI3jtJt4j">第 7 批搬运成功</span></div>
+        <div data-page-node-id="WR4BuRGOl8UOymygQi0qzP"><b data-page-node-id="8ivIhsKPeily4OFpDpxoJE">0</b><span data-page-node-id="PZHb3ikhTzEOZBJwuSI5pn">平台校验不通过</span></div>
+      </div>
+    </div>
+    <div class="sample-r" data-page-node-id="BHjdOYtJNhVn0Bx4B85eWr">
+      <div class="fh" data-page-node-id="IMBHIQeFE09xV8i9qSj1Yc">产物文件 · 已随收录仓 skill-arsenal 开源</div>
+      <div class="frow" data-page-node-id="Ln9y0AbCTg9ifcw19q5i9Q"><b data-page-node-id="kuwejE9gBtxHkyP04YhXHO">skills/&lt;slug&gt;/ · 技能包目录（37 个，复制即装）</b></div>
+      <div class="frow" data-page-node-id="zhY2kbBD2zulFc15XF90VB"><b data-page-node-id="5pYVFkg4Wfur67wHANDT8A">porting-changes.md · 逐技能改动清单</b></div>
+      <div class="frow" data-page-node-id="5NP2TUrE9N8VqFv1IrXZLQ"><b data-page-node-id="2dRkVV0GvBCuz8bOQ3d83g">THIRD-PARTY-NOTICES.md · 归属声明</b></div>
+      <div class="frow" data-page-node-id="Xf4Jj5ffVTR3vWo76opUpG"><b data-page-node-id="5eRFFDwHNRtAB36Ai84B3g">translation-plan__*.md · 中文化计划</b></div>
+      <div class="sample-note" data-page-node-id="qK8qu2CVfwI9dyYFIsi7es">以上文件均为引擎交付的标准产物，不含任何凭据与账户数据 · 2026-09-27 核对 · 真实下载链接见收录仓 skill-arsenal</div>
+    </div>
+  </div>
+</section>
+
+<!-- 案例对照 -->
+<section class="case" data-page-node-id="SFRrPUgXGr1Ez3JATkGZxJ">
+  <div class="sec wrap" data-page-node-id="A5bedUYTDqzFu24kpeJbT0">
+    <span class="label" data-page-node-id="GRXa7I1BmrUIuha8zM3rhS">03.5 / BEFORE · AFTER</span>
+    <h2 data-page-node-id="R3sVkxoyzqDXoNwV4jVHip">一个真实技能的中文化全过程：video-transcribe</h2>
+    <p class="desc" data-page-node-id="aHkGUxmTl1x2IaLMt2CFe6">案例来自 wendy7756/AI-Video-Transcriber 内置技能（Apache-2.0，87 行中量文档，MCP＋技能双形态）。口径偏差如实报：指令单原写「从 P1 挑 MIT 小技能」，但 P1（yt-short-clipper）为 Tauri 应用无 SKILL.md，四道工序不适用——按「许可宽松 × 文档量中 × 有技能形态」的意图改选 P2 内置技能。</p>
+    <div class="case-grid" data-page-node-id="RtHoOb58MLE9QDzv1ntUhp">
+      <div class="case-card" data-page-node-id="PZ52o7RxhiG1I8VFMZKwhL">
+        <div class="tag" data-page-node-id="ZFNTku7a42tgJFjDqkE5t6">BEFORE · 源仓库原文</div>
+        <h3 data-page-node-id="59MSsptGSNIQU5n5bA9CLC">案例：video-transcribe · 87 行英文 SKILL.md</h3>
+        <p class="hl" data-page-node-id="UT0KALy9TRrk3FxHP0CYeU">片段 A（术语：transcribe=转录 · subtitles=字幕 · fallback=降级）
+原文：Runs this repo's pipeline headlessly: platform subtitles when available (seconds), local Whisper as fallback, then optimize -> translate -> summarize.
+译文：以无界面方式运行本仓库的转录流水线：有平台字幕时直接取用（秒级），无字幕则降级用本地 Whisper，再依次做优化 → 翻译 → 摘要。</p>
+        <p class="hl" data-page-node-id="AoGRQfB8ydFdr3ulwHcO7W">片段 B（同一词根两义译名分离：transcribe=转录 / transcript=转录文本）
+原文：When "no_speech": true the source contains no speech. There is no transcript, summary, or translation. The pipeline deliberately skips the LLM so that nothing gets invented.
+译文：当 "no_speech": true 时，源里没有语音——没有转录文本、没有摘要、没有翻译。流水线会刻意跳过 LLM，保证不编造任何内容。</p>
+        <div class="gl" data-page-node-id="F65Fnth3F7sbUMtRgGYT4M">术语表节选 · glossary 为唯一标准</div>
+        <p data-page-node-id="BmLvP9BGYoAdiAfI3IGEcl">transcribe → 转录（新词：先例检索 0 命中后新造）· transcript → 转录文本（区别于动作「转录」）· summary → 摘要（已交付 4 包先例）· fallback → 降级（26 包通行）· Whisper / ffmpeg / JSON 键 → 原样不硬译。规则：专有概念首次出现并置「中文（English）」；正文无中英夹杂整句；代码块 4 个全部原样保留。</p>
+      </div>
+      <div class="case-card" data-page-node-id="OhQO7kbW9zaGB6ZFlTxiWM">
+        <div class="tag" data-page-node-id="LyLxGfBasmRSGsPh3Kcn7l">AFTER · 交付包与验收报告</div>
+        <h3 data-page-node-id="33gJMQQGve8Mi6reYZsenK">出门时：三道门禁全绿 · 白名单干净的交付包</h3>
+        <p data-page-node-id="Vujw3LoCUAr2E1SWPm5QIz">搬运期官方校验器：通过 11 / 警告 0 / 失败 0
+中文化后官方校验器复跑：通过 11 / 警告 0 / 失败 0 · 结论：通过
+本地化检查：SKILL.md 覆盖率 7/7 行 = 100%（下限 90%）· 悬空引用 0 / 未引用文件 0 · PASS
+交付包断言：video-transcribe-zh.zip root 直铺，一级条目 = LICENSE / SKILL.md / THIRD-PARTY-NOTICES.md / assets（4 文件，无内部文档混入）</p>
+        <p class="hl" data-page-node-id="JwFvFHwIbz0sKm5WB3pjrL">门禁不是走过场：首轮本地化检查 FAIL，抓到悬空引用 ./install.sh（源仓库根脚本不在包内）——改措辞为「仓库根目录的安装脚本」后复跑归零。</p>
+        <p class="hl" data-page-node-id="W7mtydG2zY4KircQmLWKCD">交付前自检如实列出 REVIEW：去毒审计·供应链——未锁定版本的依赖安装（SKILL.md:33）需人工确认。抓到问题如实列而不是删掉——「带验收报告」卖的就是这个。</p>
+        <p data-page-node-id="4IdMEAWH4oZGp45zqCvKqq">改动清单（porting-changes）：搬运期——7 个缺失 frontmatter 字段按映射表补全、license 自动识别 Apache-2.0、assets/LICENSE 归位；中文化期——骨架段按源重写 4 段、悬空引用 1→0、新术语回填 3 条。</p>
+        <p class="warn" data-page-node-id="X8ISmoHG06Sd6IwZxIR0Db">残留风险（如实列，未替上游做决定）：依赖安装未锁定版本号 · 运行依赖外部仓库环境（venv / ffmpeg）。</p>
+      </div>
+    </div>
+    <div class="case-foot" data-page-node-id="eYP4dY8mD6nzbEzriVkEpn">素材：示范案例四件套 2026-09-26 · batch-report 已去本地路径 · 一个 87 行的英文技能，进来时只有 SKILL.md——每句话背后都有一个文件</div>
+  </div>
+</section>
+
+<!-- 版本更新 -->
+<section id="versions" class="sec wrap" data-page-node-id="SeVGmqcmWuSJh70wHIr3yO">
+  <span class="label" data-page-node-id="wg8cYi87fILdFInDsxAxlN">04 / 版本更新</span>
+  <h2 data-page-node-id="8XHqJWGSvnVdC5MVOtXJAX">版本演进可溯 · 每版改动有据可查</h2>
+  <div class="status-line" data-page-node-id="KO087PSOHwqRajTpOTtLN0">发布状态 · 收录仓 skill-arsenal 已开源（37 技能）· 平台上架物料已备 · Apache-2.0 · 2026-09-27 核对</div>
+  <div style="margin-top:24px" data-page-node-id="fLB4esVhD133SMkFBieCUT">
+    <div class="ver" data-page-node-id="8repjNyFAOGuec0Ja0biym">
+      <div class="no" data-page-node-id="8DHSGl7kTffmObl0xqBTVO"><b data-page-node-id="tWCocHTBhGuH01laOabRWs">v2.4.0</b><span data-page-node-id="g4Ql9ChwR58nQnmJODARug">2026-09</span></div>
+      <div data-page-node-id="wwvnZ3ZM12EC70o17ReVBq">
+        <h3 data-page-node-id="LcoPXp4n27MmMhjevpBNUX">当前版本 · 13 项能力全量</h3>
+        <p data-page-node-id="IL1YDA4qZsCTDv4ID4GU4z">— 12 个交付脚本 + 10 份参考文档，双轨产出与双门禁齐备</p>
+        <p data-page-node-id="qVdMLkCYjfGpmYLCPd3bVI">— 组合实验台实测 22 技能拆 212 单元，三例跨技能组合双门禁全绿</p>
+        <p data-page-node-id="XGjBpWQWWWnN6TxycHPTXR">— N:1 合并引擎与去毒审计 35 条规则为正式能力</p>
+      </div>
+    </div>
+    <div class="ver" data-page-node-id="O1HXoQvRYNMRXKrHscaKCL">
+      <div class="no" data-page-node-id="Kj6OnAH7ig0mcGxIXz3EE6"><b data-page-node-id="B7K1DUVgZUOblmXIIUpELi">v2.3.0</b><span data-page-node-id="rcotwji6hPqZRonvIKQlcb">2026-09</span></div>
+      <div data-page-node-id="roCgwUC5ahjENgVMCbMNvO">
+        <h3 data-page-node-id="LotbqgX7EidqO5oBIdVMXF">中文化改写拆为四道工序</h3>
+        <p data-page-node-id="cYSMadHpmFPgDph0LNshFn">— make_translation_plan.py 自动出计划，消灭「通读」耗时</p>
+        <p data-page-node-id="4pP6tV51fhfZ66YUKsD8q4">— glossary.md 术语唯一标准，逐段翻译不跨工序交接</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 交付脚本货架 -->
+<section id="scripts" class="sec tint wrap" data-page-node-id="Mtod0OEjtkCwCQO129Uq89">
+  <span class="label" data-page-node-id="fFI8gOMFD3Kt3b5mFE59IV">05 / 交付脚本货架</span>
+  <h2 data-page-node-id="eGcVG2r6n5gTYmeUZC6kns">12 个脚本，每个对应链上一道判定</h2>
+  <p class="desc" data-page-node-id="YU5GFtyBeyeDHG3uA4hKTJ">脚本不是功能清单，是链上一道道可复现的判定。每个都已在真实批次跑过；跑不出 PASS 的交付不会出门。</p>
+  <p style="font-size:13px;font-weight:500;color:var(--muted);margin-top:14px" data-page-node-id="jSYA6B3uQuYNPpWek0tTPt">体检 1 · 转换 2 · 合规 3 · 中文化 3 · 桥接 1 · 重组 2</p>
+  <div class="script-hero" data-page-node-id="rNuXApBp2rUYA5CQj3zBSR">
+    <div class="l" data-page-node-id="pqcjqkEQVKyQ7On0bMEdBK">
+      <span class="tag" data-page-node-id="VXAlGLUx0zK41ELEpCUhkW">链路主引擎</span>
+      <h3 data-page-node-id="PmzbAIOtvR7Bdb9ZgJjl4w">规格转换 · port_skill.py</h3>
+      <p data-page-node-id="D3TO1ZEhueu4CbOgvS74Hb">单源与批量搬运的主入口：体检、转换、双轨产出、自检门禁一条龙，batch-report 汇总全批结果</p>
+      <div class="meta" data-page-node-id="k657GTiJDHSasdLrgbYaCa">转换 · 已固化 · Apache-2.0</div>
+    </div>
+    <div class="tree" data-page-node-id="HpssCm1jRDMRHnqOFBFh8A">
+      <div class="r1" data-page-node-id="9SXkrBxKs9LIhpyWRjqh0o">github-skill-porter/</div>
+      <div class="r2" data-page-node-id="yqKrlLqf30TXYcfbcMTVoU">&nbsp;&nbsp;SKILL.md</div>
+      <div class="r2" data-page-node-id="Gq8rDJEBpPjl6AkFI4GCHs">&nbsp;&nbsp;scripts/ · 12 个</div>
+      <div class="r2" data-page-node-id="jFDj9hVxqpINuIRGUNujBK">&nbsp;&nbsp;references/ · 10 份</div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:20px" data-page-node-id="7K5q7ASJQYJrGZqx59RC3Z">
+    <div class="sc" data-page-node-id="DQxvwt16dyXs0XBjVmvc1y"><h3 data-page-node-id="k9pPKKVxJI33hCFT6AyY8D">中文化计划 · make_translation_plan.py</h3><p data-page-node-id="zaaCTt3pzmP2a0uxykdj30">自动生成翻译计划：决策项、标题树、代码块定位、骨架段标记、路径核对清单</p><div class="meta" data-page-node-id="KXuGNsldoDs4bZBfcXJJoz">工序 A · 已固化</div></div>
+    <div class="sc" data-page-node-id="03WrElRH8nxuDkAGJQOGU9"><h3 data-page-node-id="G8OKS8YHSukGNuoz2iYh9k">术语表 · references/glossary.md</h3><p data-page-node-id="Zk4apkGDh05y0nOAt3kjJ1">术语唯一标准：实证词频回收，新词只追加，越用越薄是设计目标</p><div class="meta" data-page-node-id="JSOpYXgsXU0AgYmGEkiZIS">工序 B · 已固化</div></div>
+    <div class="sc" data-page-node-id="FzgrbHoTlyrlh9S9GfYARB"><h3 data-page-node-id="oJPejURQjreWUKkJwlCUx6">中文化门禁 · check_localization.py</h3><p data-page-node-id="wePATLVO7uoRQeAbh7LMx6">逐行判定疑似英文散文行，比对技术锚点与引用完整性，支持单目录与批量</p><div class="meta" data-page-node-id="YFCaiI5eWmrP4qv0Oih5nb">工序 D · 已固化</div></div>
+    <div class="sc" data-page-node-id="OH6RF4ho3i306JvVZAiVg0"><h3 data-page-node-id="dj2pqtaMW2rL9DKoiLF3aj">去毒审计 · scan_toxicity.py</h3><p data-page-node-id="BTxhIDMm1kqUfpFEda7bcK">35 条规则扫 6 类风险（凭据泄露、提示词注入、危险执行等），硬问题阻断交付</p><div class="meta" data-page-node-id="O6O7BlDV0H73xioA2M8pe0">合规 · 已固化</div></div>
+    <div class="sc" data-page-node-id="w12Ol9vcQqILE5phDRWSn5"><h3 data-page-node-id="t8X1wnscPJCf5yQDQZHiXP">拆解与重组 · decompose / compose / merge</h3><p data-page-node-id="hfUuBdwG7WrZMYdKgOmY27">按二级标题拆四类单元溯源到行号；组合稿三道硬闸；N:1 合并四道闸零丢失</p><div class="meta" data-page-node-id="Q0UctaLMFhj07pw7E5iCAh">重组 · 已固化</div></div>
+  </div>
+  <div class="install" id="install" data-page-node-id="UoGUzDOOeH6Eyv9IrLVBc4">
+    <h3 data-page-node-id="viH5YgVw2QwKsELuLF4DNw">怎么装</h3>
+    <p class="idesc" data-page-node-id="naspTr8kGyQmljqhZKOvME">技能包一个目录，复制即装。所有脚本在本机跑，GitHub 只经 API 读公开文件，不碰你的凭据。</p>
+    <div class="paths" data-page-node-id="knNRYUHLld4g1tgbLqF9pi">
+      <div class="path" data-page-node-id="yDO0mzl5ilFESocXJ2puUK">
+        <b data-page-node-id="i5ibUE8S8WoB2SEaPntVdB">① 一行安装</b>
+        <div class="cbox" data-page-node-id="QowNa7eWaL0oYjE4XIVIYM">
+          <div data-page-node-id="VB0jZotsPO2xGt4xSwOvwq">git clone https://github.com/Cjs5725/skill-arsenal.git</div>
+          <div data-page-node-id="aMMKZrtkGUqKN1W1xxgfiI">cp -r skill-arsenal/skills/github-skill-porter ~/.workbuddy/skills/</div>
+          <div class="dim" data-page-node-id="D7APFcxik2aSWBo726aFde">port_skill.py &lt;源&gt; --out &lt;输出目录&gt;</div>
+          <div class="dim" data-page-node-id="smwhRRGmmxMpA1cRlvYAE8">check_localization.py &lt;平台版技能目录&gt;</div>
+        </div>
+        <div class="os" data-page-node-id="RbLclQQ22SFcZ0kaRm6cmX">Windows / macOS / Linux，仅需 Python 3 与标准库</div>
+      </div>
+      <div class="path" data-page-node-id="GTEYnBaT2ITxqCGArAtFSW">
+        <b data-page-node-id="EM0e9DfvDJ9Kl8WF5SJPE6">② 接你现有的 Agent</b>
+        <p data-page-node-id="ej0Q1RYGWtoGqQ54XwuJt9">把技能目录交给你的 Agent：它说需求，脚本做判定，分工写进 SKILL.md</p>
+      </div>
+      <div class="path" data-page-node-id="ll7eXgzTZEvHVR381Cc1BB">
+        <b data-page-node-id="vncxfkt2LLWRb6kbB51xYj">③ 不配 Key 也能跑</b>
+        <p data-page-node-id="EX2W1qzjkLREHOAJWOlA4F">全部能力零密钥可用；GitHub 源走公开 API 与 codeload tarball，无账户依赖</p>
+      </div>
+    </div>
+    <div class="fmt" data-page-node-id="ibUE2tGhFogl7cmCxxGis5">技能包格式：一个目录 = SKILL.md + scripts/ + references/ · 12 脚本 10 参考文档 · 复制即装</div>
+  </div>
+</section>
+
+<!-- 支持与获取 -->
+<section id="pricing" class="sec wrap" data-page-node-id="2wbzpRHEQjXPAqxCveh3X6">
+  <span class="label" data-page-node-id="0PQZE59wwFlFOSPn1nSlGj">06 / 支持与获取</span>
+  <h2 data-page-node-id="L6P8MDaiBS05DoryeA7y5Q">先白拿，再谈服务</h2>
+  <p class="desc" data-page-node-id="WE1qdFDEVFRreblwaxCGpT">引擎本体开源免费、复制即用；批量搬运与中文化服务按单谈，先交付验收报告再谈钱。三条互相独立。</p>
+  <div class="tiers" data-page-node-id="jokrBvfBClZC3xkAQdMRcI">
+    <div class="tier" data-page-node-id="hkdJmaZClYt4qhQyAhDUsj">
+      <div class="nm" data-page-node-id="bfbwdxqMl6JKnzyw0uWfVU"><b data-page-node-id="qA3ox9n1aBS4PfZNPDLeky">免费开源</b></div>
+      <div class="price" data-page-node-id="eIcixCCnGuTmwLOM5GK8yZ"><b data-page-node-id="VAXmOtp9ggJ1UrWFwrH3Zi">¥0</b><span data-page-node-id="fmsTlBxntGQJRdlhkTqG2m">Apache-2.0 永久</span></div>
+      <ul data-page-node-id="AxvRzpU4vTaIKSWKFi4vEl">
+        <li data-page-node-id="4ohn6iicEfWyhbcQ5dgVGl"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="ZU4jkzLkXFnIgsnaQ6EoTa"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="5NHibgeMPTPKbY2rwAfeae"/></svg>技能包复制即用，12 脚本全量</li>
+        <li data-page-node-id="oVmzhDlCkNDzKQWNbCz6hJ"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="DJu5I4IFjb8VSEHqYeImMb"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="C4HPsyZPM8yRvxLoxpyRqf"/></svg>源码、许可与归属声明随包</li>
+        <li data-page-node-id="Jmuh2uDn2K0WiJRmi4xqUT"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="ArIuoXQG4hZ4fzGFXItx1n"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="uJsxZnyDpSSgW0QZHnWVNl"/></svg>SKILL.md 自带判据与验收口径</li>
+      </ul>
+      <a class="btn btn-primary" href="#install" data-page-node-id="fuRj33rrCRrGWY0IMPGpP8">发布后自装</a>
+    </div>
+    <div class="tier" data-page-node-id="JJ8gY4MzCkghDVFKpcXYwn">
+      <div class="nm" data-page-node-id="fh2FRCMhza0iwK3Ct9lniI"><b data-page-node-id="cm71f2aPxAVjyUnhDga1am">定制搬运</b><span class="rec" data-page-node-id="hZEGak6Fo79XudCQePfLDk">推荐</span></div>
+      <div class="price" data-page-node-id="qkTnYjwBJQ5KP3Kbyw65ox"><b data-page-node-id="Yibn5ULBuyOcnA6FIGr1zE">待定</b><span data-page-node-id="Cwrt9ZTAq28DM5CkEsXs38">首批预约中</span></div>
+      <ul data-page-node-id="Ea6PZ7LogDnZSQxFH7FAxU">
+        <li data-page-node-id="LZVd9i3SHzjaLqtkmbyuXj"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="npanSIqxx9Pqspbq7WZ0D5"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="H9zMGM3hOL4VXJ4IrAX4Z9"/></svg>按你的源清单批量搬运，附 batch-report</li>
+        <li data-page-node-id="MYC607SCFHLwfVBjki8FTy"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="pALpFqrHlr5J5tZQxDH6pf"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="g0iEETBeTz4ksEu1IAiDGS"/></svg>中文化四道工序整包交付</li>
+        <li data-page-node-id="oop7s4FgOljVh3eLMIAATm"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="EYr5z0Zbuq1X9rEEpI19rR"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="XDK05CgAlafHDvuSXr11AT"/></svg>交付附双门禁与官方校验报告</li>
+      </ul>
+      <a class="btn btn-primary" href="#waitlist" data-page-node-id="TYJh16Inq2Mod7Er5WuFBm">预约首批名额</a>
+    </div>
+    <div class="tier" data-page-node-id="DnZRDrLioOrQPFsCFCDG9E">
+      <div class="nm" data-page-node-id="52osJq6DpgpfRnfox9UGwV"><b data-page-node-id="FgubMEaIBfmSxW8DIc4yLg">企业收录</b></div>
+      <div class="price" data-page-node-id="NBT2KzR3m6DWgh6XdxooL0"><b data-page-node-id="uZLUyHfNASyPYZ9l3fbQz6">待定</b><span data-page-node-id="1RgWKduQhNUTxPCB5AU1ie">首批预约中</span></div>
+      <ul data-page-node-id="oMQc1OGbC1kOOCFEFnE3W6">
+        <li data-page-node-id="jzBCB4QA5tdBp8EXdpe4Yg"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="mBjqFUYP1BlWgJQJNHJRb6"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="egryDg41eBC56k0yPt1EtA"/></svg>候选榜单桥接与许可风险分区</li>
+        <li data-page-node-id="cIO6KEvYuj0jrazGNM04eU"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="C7MBH2ZWbcfqeLzV4OnYYE"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="wfCKPz8jnRxc6cMdODEprr"/></svg>上架物料代整（listing + 清单）</li>
+        <li data-page-node-id="J3XuImu6puvjZxRC1IACy7"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="WsWFu0678AelDAJac1xaIC"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="hDksumfOhvEUWPbOCwaEJn"/></svg>去毒审计报告随交付</li>
+      </ul>
+      <a class="btn btn-primary" href="#waitlist" data-page-node-id="LZ0s7RK9MAaubNSXnvb0Wz">预约首批名额</a>
+    </div>
+  </div>
+  <div class="pay-note" data-page-node-id="ShtqfQ4TeYsiRL2tTN4FOY">
+    <span class="ok" data-page-node-id="Y70jLiWxtR4CmK8JZ2vQ0P"><svg width="18" height="18" viewBox="0 0 18 18" data-page-node-id="gNOCZDHqjvUbanBuXQgpcx"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#0F7A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="KNagj2YHQE17d8uEQoryLr"/></svg>爱发电主页已开：<a href="https://ifdian.net/a/mojianggongfang" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">ifdian.net/a/mojianggongfang</a>（免费中文包整理中，上架后此处同步）· 付费方案未定案、定案前不收费 · 等待列表只登记需求，不收钱</span>
+    <span class="ent" data-page-node-id="Gko8Rkb9zp9ujZXUWvVqcb">企业 / 批量收录：请通过下方「预约首批名额」表单登记，首批开放时统一联系</span>
+  </div>
+  <div class="waitlist" id="waitlist" data-page-node-id="RL5F0vMEV0IcMPxnolPKF3">
+    <span class="label" data-page-node-id="YDbZqr4dJrHvag6lWwVU0J">WAITLIST · 预约首批名额</span>
+    <h3 data-page-node-id="CCKozNvHH5ua7PP2JfBDGw">预约首批名额</h3>
+    <p class="wdesc" data-page-node-id="nV6sKe8owDrqKPjW90GxeC">首批开放顺序按登记先后排。只收三样信息：联系方式、你想要的技能、用途——这是需求登记，不是下单，也不收费。</p>
+    <form id="waitlist-form" data-page-node-id="7wJVB1EXCnmWyp4jcBsBum">
+      <div class="fields" data-page-node-id="E1U1y6YkENLirUAZx16fLe">
+        <div class="field" data-page-node-id="7cmU8cEQs9g0WB9FcHLOKG"><label for="wf-contact" data-page-node-id="M97ANVpmV9Ed86ivaw6drv">联系方式</label><input id="wf-contact" name="contact" placeholder="邮箱或微信" required data-page-node-id="O7rUmsTD8SowxRVmhzQrKO"></div>
+        <div class="field" data-page-node-id="gegtaIgs9nnBIIwolqSePE"><label for="wf-skill" data-page-node-id="8tcwnDha8Ofn9WYcJcko1N">想要哪个技能的中文版</label><input id="wf-skill" name="skill" placeholder="仓库地址或技能名" required data-page-node-id="fdfzHcyYI9yT6hZfKYJ4Sg"></div>
+        <div class="field" data-page-node-id="pGPEG7Mm8TPc8QSzvMwLIx"><label for="wf-use" data-page-node-id="Sz8r9inEeJH66FDW19KA33">用途</label><input id="wf-use" name="use" placeholder="自用 / 团队" required data-page-node-id="eUCX4QLuouAwxpvtsfl7sg"></div>
+      </div>
+      <div class="submit-row" data-page-node-id="IhCTBGS9MzbDTuffHtYdjq">
+        <button class="btn btn-primary" type="submit" data-page-node-id="qmc9VzKSFEfBOYc1cofJ98">提交预约</button>
+        <button class="btn btn-dark" type="button" id="wf-copy" data-page-node-id="wf-copy-fallback">复制登记内容</button>
+        <span class="note" data-page-node-id="pOVAXdNPvaGwQwEjdXBEdA">等待列表只登记需求 · 不收钱 · 付费方案未定案，定案前不开放任何付费动作 · 2026-09-26</span>
+      </div>
+      <div id="form-msg" role="status" data-page-node-id="SD6um1lbY6HGOHz6ezPcHx"></div>
+    </form>
+  </div>
+</section>
+
+<!-- 收尾（暗） -->
+<section class="dark closing" data-page-node-id="81DDf3VTawQd0ACQXlBNcl">
+  <div class="sec wrap" data-page-node-id="UAWbyUTNPfcFsQ6sCRe4oR">
+    <div class="close-grid" data-page-node-id="T5eUiQcn0Q7VBrH9erKSz6">
+      <div class="close-copy" data-page-node-id="UZ2jw91dU1jTXrG8Y6OPti">
+        <span class="label" data-page-node-id="1SbvXqEq3wgZN4FsJ2cEUC">START WITH A SOURCE</span>
+        <h2 data-page-node-id="CzrkEzxxVOX6gSwpuCxwvc">先说你想搬什么</h2>
+        <p class="desc" data-page-node-id="fsQHsSTEAIJgUrstGXDsKj">把源仓库地址和目标说清楚，引擎先出体检报告再动手——能不能搬、卡在哪、值不值得搬，报告说了算。</p>
+        <div class="close-cta" data-page-node-id="hC8pmxASFJATMKX4aaqdJ6">
+          <a class="btn btn-inv" href="listing.html" data-page-node-id="mWzIZj1Jsp4Db3AEmPPzmS">看收录清单</a>
+          <a class="btn btn-dark" href="#install" data-page-node-id="EAhUpXWDoTRKyNLJwuVluH">读 SKILL.md</a>
+        </div>
+      </div>
+      <div class="qcard" data-page-node-id="h4cDJqS3bVMOkf6Kd8MRep">
+        <div class="qh" data-page-node-id="1NKGNgpLmSparOVZEn6CRj">可以这样开始</div>
+        <div class="q" data-page-node-id="yNyhD6PGJbwtYa5F1X6wm0"><i data-page-node-id="6MzpFqxJ7AitnDc4Z4H60t">›</i><p data-page-node-id="VZSzaVwSLi2s5fkpW6sbZK">anthropics/skills 里哪几个能直接搬？</p></div>
+        <div class="q" data-page-node-id="KqcZdsG6w5ev9S0XrFCks1"><i data-page-node-id="lH86LUCHOQwH9ax3NDE3rD">›</i><p data-page-node-id="PrrS5dCH5R9WsM1qXglN4b">把这几个技能的说明全部变中文</p></div>
+        <div class="q" data-page-node-id="Cvo4Mf42E0Dz0EeuBDmxeW"><i data-page-node-id="HULF2R8BYwSh7ITpSfnnjv">›</i><p data-page-node-id="9x665h1LANgEopn6kXfXw6">这批候选仓库哪些只能本地留、不能上架？</p></div>
+        <div class="qnote" data-page-node-id="T9qwwsOAe6Ae0ohexdymHi">体检先行 · 门禁说了算 · 判断权在你</div>
+      </div>
+    </div>
+    <div class="mono" style="font-size:12px;color:#6B727E;margin-top:56px" data-page-node-id="cc4RnYYucIt2yRMcNJQixE">github-skill-porter · 技能搬运 / 合规门禁 / 中文化 · 2026</div>
+  </div>
+</section>
+
+<footer data-page-node-id="LJZDDRAQmDxUvx7vTTjO4E">
+  <div class="wrap" data-page-node-id="RxHKcmJGU6tHd4OZGWzTYZ">
+    <div class="ft-top" data-page-node-id="GBlYJWS5EmgmNGl6dTQfUo">
+      <div class="ft-brand" data-page-node-id="utsY5kLoPAezNCB3rJJOic">
+        <div class="brand" data-page-node-id="3oEVdXeK4HBESTBG5tLFB1"><span class="logo" data-page-node-id="DIEFVKsVDWiy86TpqxFb8i">SP</span><b style="font-size:17px" data-page-node-id="dD8pQX3p9Y8dClvbYzOChE">GitHub技能搬运工</b></div>
+        <p data-page-node-id="b2VSzYEB2t0D3YBYNxHWA5">自研技能生产引擎：体检、转换、合规、中文化四道工序。收录 27 技能的仓库与上架物料就绪中，发布状态以本页核对日期为准。</p>
+      </div>
+      <div class="ft-cols" data-page-node-id="FLNGHDWWPx2QQknaKdwRdh">
+        <div data-page-node-id="CoThmbtGLjKgBCFilG6gzo"><h4 data-page-node-id="0W4aHea1ucsKqUF59Z5XW7">能力</h4><a href="#capabilities" data-page-node-id="0vtA57vgiqtcgptDs0qa44">搬运与转换</a><a href="#capabilities" data-page-node-id="Lry8QtIzgOtpaThj6o7mRG">中文化四道工序</a><a href="#capabilities" data-page-node-id="cdWG1P1wcO49tqM7xWMexx">拆解与重组</a></div>
+        <div data-page-node-id="Stw6gkORIHqsFTBkdWVUux"><h4 data-page-node-id="HPovDL44GdGqUbC6R2HgBB">使用</h4><a href="listing.html" data-page-node-id="7gK6a2lXLwYhR6n3VTMInr">收录技能清单</a><a href="#samples" data-page-node-id="8PTcUxbpcEn92fXzduegN6">批次搬运报告</a><a href="#scripts" data-page-node-id="WYaoNfUeF0DjTjcZ7QfSQz">交付脚本货架</a></div>
+        <div data-page-node-id="IMi4jptRsaPZgPLKYdAO5B"><h4 data-page-node-id="SpTHEOdbNrzBRWWuR1iK9c">关于</h4><a href="#install" data-page-node-id="52rFKPcH3kGEA6Bxngxq1L">安装说明</a><a href="listing.html#redline" data-page-node-id="kyOceugrkQoESdrGrsivNX">许可与归属</a><a href="#waitlist" data-page-node-id="ZCXxbkAuB9HPHZPvoD6ywm">联系作者</a></div>
+        <div data-page-node-id="lQAITMsLylxxyoVM19CYT9"><h4 data-page-node-id="8J68NgRKe1wN10jUzUIxAc">支持</h4><a href="#pricing" data-page-node-id="2QqRR8gdifnOVL8Dq8gI13">开源免费</a><a href="#waitlist" data-page-node-id="8BMHsCtY0H3odZa5KHlU18">定制搬运</a><a href="#waitlist" data-page-node-id="cYsecyuZr4pohMh0VirftI">企业收录</a></div>
+      </div>
+    </div>
+    <div class="ft-line" data-page-node-id="ALvzHi79PZElB6EqyXLKIj"></div>
+    <div class="giant" data-page-node-id="MlYzdJZHFd28LRFLF6f7Es">SKILL PORTER</div>
+    <div class="ft-bottom" data-page-node-id="AI8IeeQW5K8if6aMld1iAx">
+      <span class="cp" data-page-node-id="Ag7dtG3mERf3OEGB5dCQAI">mojiang.ink · 2026 墨匠工坊 · github-skill-porter 以 Apache-2.0 开源</span>
+      <span class="st" data-page-node-id="pVXvgGWo3Q44THHJD5Cv8K">收录清单 37 行就绪 · 收录仓 skill-arsenal 已开源 · 爱发电主页已开 · 付费方案未定案、定案前不收费</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   等待列表收件邮箱配置（3.4 验收②：真实可提交）
+   把 WAITLIST_EMAIL 填成真实邮箱后，提交按钮即唤起邮件客户端。
+   为空字符串时点击给出明确提示，不假装提交。
+   ============================================================ */
+var WAITLIST_EMAIL = "493895536@qq.com";
+
+document.getElementById("waitlist-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var msg = document.getElementById("form-msg");
+  var contact = document.getElementById("wf-contact").value.trim();
+  var skill = document.getElementById("wf-skill").value.trim();
+  var use = document.getElementById("wf-use").value.trim();
+  if (!contact || !skill || !use) { msg.textContent = "三样信息都要填：联系方式、想要的技能、用途。"; return; }
+  if (!WAITLIST_EMAIL) {
+    msg.textContent = "提交通道尚未开通（站点配置项 WAITLIST_EMAIL 未填邮箱）。你也可以先把这三样信息直接发给站长。";
+    return;
+  }
+  var subject = encodeURIComponent("【等待列表】预约首批名额 · " + skill);
+  var body = encodeURIComponent("联系方式：" + contact + "\n想要哪个技能的中文版：" + skill + "\n用途：" + use + "\n\n（来自官网等待列表表单 · 只登记需求，不收钱）");
+  window.location.href = "mailto:" + WAITLIST_EMAIL + "?subject=" + subject + "&body=" + body;
+  msg.textContent = "已尝试唤起邮件客户端，发送即完成登记。若没有反应（手机端/未装邮件客户端），点「复制登记内容」，再手动发邮件到 " + WAITLIST_EMAIL + "。";
+});
+
+/* mailto 降级（手机端/无邮件客户端）：一键复制登记内容，用户自行粘贴发送 */
+document.getElementById("wf-copy").addEventListener("click", function () {
+  var msg = document.getElementById("form-msg");
+  var contact = document.getElementById("wf-contact").value.trim();
+  var skill = document.getElementById("wf-skill").value.trim();
+  var use = document.getElementById("wf-use").value.trim();
+  if (!contact || !skill || !use) { msg.textContent = "先填全三样信息，再复制。"; return; }
+  var text = "【等待列表】预约首批名额
+联系方式：" + contact + "
+想要哪个技能的中文版：" + skill + "
+用途：" + use + "
+收件：" + WAITLIST_EMAIL;
+  function done() { msg.textContent = "已复制登记内容。请打开邮箱（" + WAITLIST_EMAIL + "），粘贴发送即完成登记。"; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done, msg); });
+  } else { fallbackCopy(text, done, msg); }
+});
+function fallbackCopy(text, done, msg) {
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); done(); } catch (e) { msg.textContent = "复制失败，请手动记录三样信息后发邮件到 " + WAITLIST_EMAIL; }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>
